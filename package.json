@@ -1,0 +1,24 @@
+{
+  "name": "street-culture",
+  "private": "true",
+  "version": "1.0.0",
+  "description": "Street Culture is an ecommerce webapp that sells street fashion and skateboards around US and Korea",
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "nextjs",
+    "ecommerce"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write .",
+    "clean": "turbo clean"
+  },
+  "engines": {
+    "node": ">=24.0.0",
+    "pnpm": ">=11.0.0"
+  },
+  "packageManager": "pnpm@11.5.0"
+}
