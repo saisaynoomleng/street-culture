@@ -23,6 +23,7 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('utilityPage')
         .title('Utility Pages')
         .icon(MdOutlineFormatAlignJustify),
+      S.documentTypeListItem('homePage').title('Home Page'),
 
       S.divider().title('Marketing'),
       S.documentTypeListItem('author').title('Authors').icon(GiPencil),
