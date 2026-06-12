@@ -1,36 +1,19 @@
 # =========================
-# DEPENDENCIES (CRITICAL)
+# DEPENDENCIES
 # =========================
 node_modules
-**/node_modules
-
 .pnp
 .pnp.*
-
-# pnpm store (optional but recommended)
-.pnpm-store
-
 
 # =========================
 # BUILD OUTPUTS
 # =========================
 .next
-**/.next
-
 dist
-**/dist
-
 build
-**/build
-
 out
-**/out
-
 coverage
-**/coverage
-
 storybook-static
-
 
 # =========================
 # TURBO / CACHE
@@ -38,34 +21,26 @@ storybook-static
 .turbo
 .cache
 
-
 # =========================
 # ENV FILES
 # =========================
 .env
-.env.local
-.env.development
-.env.production
-.env.test
-.env*.local
+.env.*
 !.env.example
-
 
 # =========================
 # NEXT.JS
 # =========================
 next-env.d.ts
 
-
 # =========================
 # LOGS
 # =========================
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-*.log
-
 
 # =========================
 # OS FILES
@@ -73,42 +48,25 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 
-
 # =========================
 # IDE / EDITORS
 # =========================
 .vscode
-!.vscode/extensions.json
 .idea
-
-
-# =========================
-# TEST / COVERAGE
-# =========================
-coverage
-
-
-# =========================
-# STORYBOOK
-# =========================
-*.storybook.log
-
-
-# =========================
-# DATABASE / LOCAL TOOLS (optional)
-# =========================
-*.sqlite
-*.db
-
 
 # =========================
 # TYPESCRIPT
 # =========================
 *.tsbuildinfo
 
-
 # =========================
-# SANITY (optional but common)
+# SANITY
 # =========================
 .sanity
 sanity/build
+
+# =========================
+# DEPLOYMENT
+# =========================
+.vercel
+*storybook.log
