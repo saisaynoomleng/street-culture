@@ -31,7 +31,7 @@ export const blockContent = defineType({
 })
 
 export const socialLink = defineType({
-  name: 'socailLink',
+  name: 'socialLink',
   type: 'object',
   fields: [
     defineField({
@@ -82,14 +82,14 @@ export const localeString = defineType({
 
 export const localeText = defineType({
   name: 'localeText',
-  type: 'array',
-  of: [
-    defineArrayMember({
+  type: 'object',
+  fields: [
+    defineField({
       name: 'en',
       title: 'English',
       type: 'blockContent',
     }),
-    defineArrayMember({
+    defineField({
       name: 'kr',
       title: 'Korean',
       type: 'blockContent',
@@ -159,4 +159,14 @@ export const faq = defineType({
       type: 'localeText',
     }),
   ],
+  preview: {
+    select: {
+      title: 'title.en',
+    },
+    prepare({title}) {
+      return {
+        title: title || 'FAQ title not provided',
+      }
+    },
+  },
 })
