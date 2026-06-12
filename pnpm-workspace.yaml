@@ -1,3 +1,17 @@
 packages:
-  - "apps/*"
-  - "packages/*"
+  - 'apps/*'
+  - 'packages/*'
+allowBuilds:
+  sharp: true
+  unrs-resolver: true
+  esbuild: true
+minimumReleaseAgeExclude:
+  - '@sanity/cli-build@1.0.4'
+  - '@sanity/cli@7.2.2'
+  - '@sanity/diff@6.0.0'
+  - '@sanity/mutator@6.0.0'
+  - '@sanity/schema@6.0.0'
+  - '@sanity/types@6.0.0'
+  - '@sanity/util@6.0.0'
+  - '@sanity/vision@6.0.0'
+  - sanity@6.0.0

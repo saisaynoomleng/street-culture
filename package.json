@@ -14,11 +14,18 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write .",
-    "clean": "turbo clean"
+    "clean": "turbo clean",
+    "test": "pnpm --color -r run vitest"
   },
   "engines": {
     "node": ">=24.0.0",
     "pnpm": ">=11.0.0"
   },
-  "packageManager": "pnpm@11.5.0"
+  "packageManager": "pnpm@11.5.0",
+  "devDependencies": {
+    "@manypkg/cli": "^0.25.1",
+    "syncpack": "^15.3.1",
+    "turbo": "^2.9.18",
+    "typescript": "^6.0.3"
+  }
 }

@@ -1,0 +1,15 @@
+{
+  "name": "@street-culture/email",
+  "version": "1.0.0",
+  "private": "true",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "scripts": {},
+  "dependencies": {
+    "resend": "^6.12.4"
+  },
+  "devDependencies": {
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@street-culture/ui",
+  "version": "1.0.0",
+  "private": "true",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build"
+  },
+  "dependencies": {
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^5.2.1",
+    "@storybook/addon-a11y": "10.4.3",
+    "@storybook/addon-docs": "10.4.3",
+    "@storybook/addon-vitest": "10.4.3",
+    "@storybook/react-vite": "10.4.3",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitest/browser-playwright": "^4.1.8",
+    "@vitest/coverage-v8": "^4.1.8",
+    "playwright": "^1.60.0",
+    "storybook": "10.4.3",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
+  }
+}
