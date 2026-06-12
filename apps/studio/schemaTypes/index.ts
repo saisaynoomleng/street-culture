@@ -6,6 +6,7 @@ import {lookbook} from './documents/lookbook'
 import {ourStory} from './documents/ourStory'
 import {productContent} from './documents/productContent'
 import {store} from './documents/store'
+import {homePage} from './pages/homePage'
 import {utilityPage} from './pages/utilityPage'
 import {
   blockContent,
@@ -36,4 +37,5 @@ export const schemaTypes = [
   store,
   productContent,
   lookbook,
+  homePage,
 ]
