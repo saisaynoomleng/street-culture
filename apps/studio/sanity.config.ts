@@ -4,6 +4,8 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {blockStyles} from 'sanity-plugin-block-styles'
 import {media} from 'sanity-plugin-media'
+import {structure} from './structure'
+import {customColorPicker} from 'sanity-plugin-color-input'
 
 export default defineConfig({
   name: 'default',
@@ -12,7 +14,7 @@ export default defineConfig({
   projectId: 'g8wycn5o',
   dataset: 'production',
 
-  plugins: [structureTool(), visionTool(), blockStyles(), media()],
+  plugins: [structureTool({structure}), visionTool(), blockStyles(), media(), customColorPicker()],
 
   schema: {
     types: schemaTypes,
