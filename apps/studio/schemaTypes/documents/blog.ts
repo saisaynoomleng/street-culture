@@ -93,7 +93,31 @@ export const blog = defineType({
       name: 'comments',
       title: 'Blog Comments',
       type: 'array',
-      of: [{type: 'text'}],
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'user',
+              title: 'User',
+              type: 'string',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'commentedAt',
+              title: 'Commented Date',
+              type: 'date',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'body',
+              title: 'Comment Text',
+              type: 'text',
+              validation: (rule) => rule.required(),
+            }),
+          ],
+        },
+      ],
     }),
     defineField({
       name: 'isMemberOnly',
