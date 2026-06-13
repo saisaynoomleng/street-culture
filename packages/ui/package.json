@@ -1,16 +1,26 @@
 {
   "name": "@street-culture/ui",
   "version": "1.0.0",
-  "private": "true",
-  "types": "dist/index.d.ts",
-  "module": "dist/index.js",
+  "private": true,
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "storybook build"
   },
+  "imports": {
+    "#components/*": "./src/components/*",
+    "#lib/*": "./src/lib/*",
+    "#hooks/*": "./src/hooks/*"
+  },
   "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.17.0",
+    "radix-ui": "^1.5.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "shadcn": "^4.11.0",
+    "tailwind-merge": "^3.6.0",
+    "tw-animate-css": "^1.4.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.2.1",
@@ -18,6 +28,7 @@
     "@storybook/addon-docs": "10.4.3",
     "@storybook/addon-vitest": "10.4.3",
     "@storybook/react-vite": "10.4.3",
+    "@tailwindcss/typography": "^0.5.20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitest/browser-playwright": "^4.1.8",
@@ -26,5 +37,12 @@
     "storybook": "10.4.3",
     "typescript": "^6.0.3",
     "vitest": "^4.1.8"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "module": "./dist/index.js"
+    },
+    "./styles/css": "./src/styles/globals.css"
   }
 }
