@@ -1,6 +1,6 @@
 import {formatTitle} from '@street-culture/utils'
 import {MdOutlineStoreMallDirectory} from 'react-icons/md'
-import {defineField, defineType} from 'sanity'
+import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export const store = defineType({
   name: 'store',
@@ -12,15 +12,6 @@ export const store = defineType({
       name: 'name',
       title: 'Store Name',
       type: 'string',
-    }),
-    defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'name',
-      },
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'email',
@@ -92,6 +83,33 @@ export const store = defineType({
       title: 'Shop Image',
       type: 'imageWithAlt',
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'storeHours',
+      title: 'Store Hours',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'day',
+              type: 'number',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'openingHours',
+              type: 'time',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'closingHours',
+              type: 'time',
+              validation: (rule) => rule.required(),
+            }),
+          ],
+        }),
+      ],
     }),
   ],
   preview: {

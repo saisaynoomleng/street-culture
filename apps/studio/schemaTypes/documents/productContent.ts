@@ -14,15 +14,6 @@ export const productContent = defineType({
       type: 'string',
     }),
     defineField({
-      name: 'slug',
-      title: 'slug',
-      type: 'slug',
-      options: {
-        source: 'name',
-      },
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
       name: 'displayTitle',
       title: 'Display Title',
       type: 'localeString',
