@@ -33,7 +33,7 @@
     "@street-culture/utils": "workspace:*",
     "@types/react": "^19",
     "eslint": "^9",
-    "prettier": "^3.5",
+    "prettier": "^3.8.4",
     "typescript": "^6.0.3"
   },
   "prettier": {
