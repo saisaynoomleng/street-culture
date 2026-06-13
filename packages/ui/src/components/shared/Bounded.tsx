@@ -1,22 +1,17 @@
-import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
-
-{
-  none: '';
-  sm: 'px-4 md:px-8 lg:px-10';
-  md: 'px-8 md:px-10 lg:px-12';
-  lg: 'px-10 md:px-12 lg:px-16';
-}
+import clsx from 'clsx';
 
 type BoundedProps = {
-  as: 'section' | 'main';
+  as?: 'section' | 'main';
   children: React.ReactNode;
   className?: string;
-  padding: 'none' | 'sm' | 'md' | 'lg';
-  isCentered: boolean;
+  padding?: Padding;
+  isCentered?: boolean;
 };
 
-const paddingSize: Record<BoundedProps['padding'], string> = {
+type Padding = 'none' | 'sm' | 'md' | 'lg';
+
+const paddingSize: Record<Padding, string> = {
   none: '',
   sm: 'px-4 md:px-8 lg:px-10',
   md: 'px-8 md:px-10 lg:px-12',

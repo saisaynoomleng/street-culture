@@ -24,11 +24,9 @@
   "packageManager": "pnpm@11.5.0",
   "devDependencies": {
     "@manypkg/cli": "^0.25.1",
+    "prettier": "^3.8.4",
     "syncpack": "^15.3.1",
     "turbo": "^2.9.18",
     "typescript": "^6.0.3"
-  },
-  "dependencies": {
-    "prettier": "^3.8.4"
   }
 }

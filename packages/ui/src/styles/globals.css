@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Assistant:wght@200..800&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
@@ -116,11 +117,120 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@theme {
+  /* colors */
+  --color-brand-primary-50: #f0f9ff;
+  --color-brand-primary-100: #e1f3fd;
+  --color-brand-primary-200: #bbe8fc;
+  --color-brand-primary-300: #80d6f9;
+  --color-brand-primary-400: #3cc1f4;
+  --color-brand-primary-500: #13a9e4;
+  --color-brand-primary-600: #0688c3;
+  --color-brand-primary-700: #066d9e;
+  --color-brand-primary-800: #0a5c82;
+  --color-brand-primary-900: #0e4c6c;
+  --color-brand-primary-950: #0b3954;
+
+  --color-brand-accent-50: #f3f7fb;
+  --color-brand-accent-100: #e3edf6;
+  --color-brand-accent-200: #bfd7ea;
+  --color-brand-accent-300: #accde4;
+  --color-brand-accent-400: #85b2d5;
+  --color-brand-accent-500: #6898c9;
+  --color-brand-accent-600: #5480bc;
+  --color-brand-accent-700: #4a6eab;
+  --color-brand-accent-800: #415b8c;
+  --color-brand-accent-900: #384d70;
+  --color-brand-accent-950: #263145;
+
+  --color-brand-error-50: #fff1f1;
+  --color-brand-error-100: #ffe2e1;
+  --color-brand-error-200: #ffc8c7;
+  --color-brand-error-300: #ffa2a0;
+  --color-brand-error-400: #ff6663;
+  --color-brand-error-500: #f83f3b;
+  --color-brand-error-600: #e5211d;
+  --color-brand-error-700: #c11714;
+  --color-brand-error-800: #a01714;
+  --color-brand-error-900: #841a18;
+  --color-brand-error-950: #480807;
+
+  --color-brand-success-50: #fbffe7;
+  --color-brand-success-100: #f3ffc4;
+  --color-brand-success-200: #eaff8f;
+  --color-brand-success-300: #e0ff4f;
+  --color-brand-success-400: #d5fa1b;
+  --color-brand-success-500: #c2e505;
+  --color-brand-success-600: #a8bf00;
+  --color-brand-success-700: #899504;
+  --color-brand-success-800: #72780b;
+  --color-brand-success-900: #63660f;
+  --color-brand-success-950: #383a04;
+
+  --color-brand-neutral-50: #fafafa;
+  --color-brand-neutral-100: #f2f2f2;
+  --color-brand-neutral-200: #e6e6e6;
+  --color-brand-neutral-300: #d6d6d6;
+  --color-brand-neutral-400: #a5a5a5;
+  --color-brand-neutral-500: #767676;
+  --color-brand-neutral-600: #575757;
+  --color-brand-neutral-700: #434343;
+  --color-brand-neutral-800: #292929;
+  --color-brand-neutral-900: #1a1a1a;
+  --color-brand-neutral-950: #0a0a0a;
+
+  /* typography */
+  /* font families */
+  --font-heading: 'Assistant', sans-serif;
+  --font-body: 'Abel', sans-serif;
+
+  /* font sizes */
+  --text-fs-900: 4.5rem;
+  --text-fs-800: 3.75rem;
+  --text-fs-700: 3rem;
+  --text-fs-600: 2.25rem;
+  --text-fs-500: 1.5rem;
+  --text-fs-400: 1rem;
+  --text-fs-300: 0.875rem;
+  --text-fs-200: 0.5rem;
+
+  /* breakpoints */
+  --breakpoint-lg: 1000px;
+  --breakpoint-md: 760px;
+  --breakpoint-sm: 560px;
+}
+
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  html {
+    @apply scroll-smooth;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply font-body bg-brand-neutral-50 text-brand-neutral-950 leading-normal tracking-normal overflow-x-hidden;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply leading-none text-balance;
+  }
+
+  p {
+    @apply text-pretty;
+  }
+}
+
+@utility form-error-message {
+  @apply italic text-fs-300 text-brand-error-600;
+}
+
+@utility form-label {
+  @apply block after:absolute after:content-["*"] after:ml-0.5 relative;
+}
+
+@utility divider {
+  @apply my-2 w-full h-px bg-brand-neutral-950;
 }
