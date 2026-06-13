@@ -6,22 +6,33 @@
     "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sanity:typegen": "sanity schema extract --path=./src/sanity/schema.json && sanity typegen generate"
   },
   "dependencies": {
+    "@clerk/nextjs": "^7.5.2",
+    "@sanity/image-url": "^2.1.1",
     "next": "16.2.9",
+    "next-sanity": "^13.1.0",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@street-culture/db": "workspace:*",
+    "@t3-oss/env-nextjs": "^0.13.11",
     "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.20",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "clsx": "^2.1.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
+    "react-icon": "^1.0.0",
+    "sanity": "^6.0.0",
     "tailwindcss": "^4",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "zod": "^4.4.3"
   }
 }
