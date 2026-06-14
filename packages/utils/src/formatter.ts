@@ -16,7 +16,7 @@ export const formatTitle = (title: string): string => {
 };
 
 export const formatDate = (date: string | Date): string => {
-  return new Date(date).toLocaleDateString('en-US', {
+  return new Date(date).toLocaleDateString(undefined, {
     day: '2-digit',
     month: 'short',
     year: 'numeric',

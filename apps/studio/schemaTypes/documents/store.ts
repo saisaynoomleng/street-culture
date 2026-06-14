@@ -99,12 +99,12 @@ export const store = defineType({
             }),
             defineField({
               name: 'openingHours',
-              type: 'time',
+              type: 'string',
               validation: (rule) => rule.required(),
             }),
             defineField({
               name: 'closingHours',
-              type: 'time',
+              type: 'string',
               validation: (rule) => rule.required(),
             }),
           ],
