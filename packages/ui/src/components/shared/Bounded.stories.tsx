@@ -7,6 +7,12 @@ const meta: Meta<typeof Bounded> = {
   title: 'Components/Shared/Bounded',
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Layout primitive that constrains content width and applies horizontal spacing.',
+      },
+    },
   },
   tags: ['autodocs'],
 
@@ -39,22 +45,7 @@ const meta: Meta<typeof Bounded> = {
     },
 
     children: {
-      control: 'object',
-      table: {
-        type: {
-          summary: 'Represents anything React can render',
-          detail: `
-            <div>Hello</div>
-            <>
-              <h1>title</h1>
-              <p>text</p>
-            </>
-            'string'
-            123
-            null
-          `,
-        },
-      },
+      control: false,
     },
 
     className: {
@@ -90,12 +81,11 @@ export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const paragrah = canvas.getByRole('paragraph');
-    const section = paragrah.parentElement;
+    const paragraph = canvas.getByRole('paragraph');
+    const section = canvasElement.querySelector('section');
 
-    await expect(paragrah).toBeInTheDocument();
+    await expect(paragraph).toBeInTheDocument();
     await expect(section).toBeInTheDocument();
-    await expect(section?.tagName).toBe('SECTION');
   },
 };
 

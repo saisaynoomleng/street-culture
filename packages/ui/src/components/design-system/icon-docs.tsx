@@ -1,4 +1,4 @@
-import { Bounded } from '../shared';
+import Bounded from '#components/shared/Bounded.tsx';
 import { FaRegNewspaper } from 'react-icons/fa';
 import { GiNewspaper, GiPencil } from 'react-icons/gi';
 import { GrCircleQuestion } from 'react-icons/gr';
