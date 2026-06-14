@@ -71,7 +71,7 @@ export const localeString = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'kr',
+      name: 'ko',
       title: 'Korean',
       type: 'string',
       description: 'Text in Korean to display on the website',
@@ -90,7 +90,7 @@ export const localeText = defineType({
       type: 'blockContent',
     }),
     defineField({
-      name: 'kr',
+      name: 'ko',
       title: 'Korean',
       type: 'blockContent',
     }),

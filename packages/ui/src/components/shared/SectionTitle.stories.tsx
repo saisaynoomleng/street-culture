@@ -7,6 +7,11 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'Title to display on each section on the webpage',
+      },
+    },
   },
   component: SectionTitle,
 
@@ -34,22 +39,7 @@ const meta = {
     },
 
     children: {
-      control: 'object',
-      table: {
-        type: {
-          summary: 'Represents anything React can render',
-          detail: `
-            <div>Heading</div>
-            <>
-              <h1>Title</h1>
-              <p>Text</p>
-            </>
-            'string'
-            123
-            null
-          `,
-        },
-      },
+      control: false,
     },
   },
 } satisfies Meta;

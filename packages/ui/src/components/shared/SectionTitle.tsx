@@ -13,6 +13,7 @@ const SectionTitle = <T extends Headings = 'h2'>({
   as,
   children,
   className,
+  ...props
 }: SectionTitleProps<T>) => {
   const Comp = as || 'h2';
 
@@ -24,6 +25,7 @@ const SectionTitle = <T extends Headings = 'h2'>({
           className,
         ),
       )}
+      {...props}
     >
       {children}
     </Comp>
