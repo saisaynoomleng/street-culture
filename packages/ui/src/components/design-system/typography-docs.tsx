@@ -75,7 +75,11 @@ const TypographyDocs = () => {
                 <p className="font-semibold text-neutral-400 uppercase">
                   {heading.name}
                 </p>
-                <p style={{ fontSize: `${heading.fontSize}` }}>Typography</p>
+                <p
+                  style={{ fontSize: `${heading.fontSize}`, fontWeight: '600' }}
+                >
+                  Typography
+                </p>
                 <div className="flex justify-between items-center text-fs-300 text-neutral-500">
                   <p>Size: {heading.size}</p>
                   <p>Weight: {heading.weight}</p>

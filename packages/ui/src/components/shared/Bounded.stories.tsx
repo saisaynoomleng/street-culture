@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Bounded } from './Bounded';
+import Bounded from './Bounded';
 import { within, expect } from 'storybook/test';
 
 const meta: Meta<typeof Bounded> = {
@@ -12,19 +12,20 @@ const meta: Meta<typeof Bounded> = {
 
   args: {
     as: 'section',
-    isCentered: true,
-    padding: 'md',
+    padding: 'sm',
+    size: 'wide',
+    centered: true,
   },
   argTypes: {
     as: {
-      control: 'radio',
-      description: 'HTML semantic tag <main></main> and <section></section>',
+      control: 'text',
+      description: 'HTML semantic tag defining the component',
     },
 
-    isCentered: {
+    centered: {
       control: 'boolean',
       description:
-        'Decided whether the components should be in the centered in larger screens',
+        'Decided whether the components should be in the centered in larger screens when screen witdth is over 1280px',
     },
 
     padding: {
@@ -41,7 +42,17 @@ const meta: Meta<typeof Bounded> = {
       control: 'object',
       table: {
         type: {
-          summary: 'Any React Node to render in the component',
+          summary: 'Represents anything React can render',
+          detail: `
+            <div>Hello</div>
+            <>
+              <h1>title</h1>
+              <p>text</p>
+            </>
+            'string'
+            123
+            null
+          `,
         },
       },
     },
@@ -49,6 +60,16 @@ const meta: Meta<typeof Bounded> = {
     className: {
       control: 'text',
       description: 'Additional TailwindCSS classes',
+    },
+
+    size: {
+      control: 'radio',
+      description: 'Represents the maximum width of the container',
+      table: {
+        type: {
+          summary: 'Define the maximum width depending on the usecase',
+        },
+      },
     },
   },
 };
@@ -80,7 +101,7 @@ export const Default: Story = {
 
 export const Main: Story = {
   render: (args) => (
-    <Bounded {...args} as="main">
+    <Bounded {...args} as="main" centered>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam,
         eos.
