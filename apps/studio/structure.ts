@@ -2,6 +2,7 @@ import {FaRegNewspaper} from 'react-icons/fa'
 import {GiGearHammer, GiNewspaper, GiPencil} from 'react-icons/gi'
 import {GrCircleQuestion} from 'react-icons/gr'
 import {MdCategory, MdOutlineFormatAlignJustify, MdOutlineStoreMallDirectory} from 'react-icons/md'
+import {PiFlagBanner} from 'react-icons/pi'
 import {SiNike} from 'react-icons/si'
 import {VscMilestone} from 'react-icons/vsc'
 import {StructureResolver} from 'sanity/structure'
@@ -23,7 +24,7 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('utilityPage')
         .title('Utility Pages')
         .icon(MdOutlineFormatAlignJustify),
-      S.documentTypeListItem('homePage').title('Home Page'),
+      S.documentTypeListItem('hero').title('Hero Banner').icon(PiFlagBanner),
 
       S.divider().title('Marketing'),
       S.documentTypeListItem('author').title('Authors').icon(GiPencil),

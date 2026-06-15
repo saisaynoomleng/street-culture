@@ -9,6 +9,7 @@ import {
 } from 'react-icons/md';
 import { SiNike } from 'react-icons/si';
 import { VscMilestone } from 'react-icons/vsc';
+import { PiFlagBanner } from 'react-icons/pi';
 
 const IconList = [
   <GiPencil />,
@@ -21,6 +22,7 @@ const IconList = [
   <MdOutlineStoreMallDirectory />,
   <MdOutlineFormatAlignJustify />,
   <GiGearHammer />,
+  <PiFlagBanner />,
 ];
 
 const IconDocs = () => {
@@ -30,7 +32,7 @@ const IconDocs = () => {
       <p>
         The icon pack is based on Material Design Icons, Grommet Icons, Game
         Icons, Simple Icons, Font Awesome Icons, Tabler Icons, Lucide Icons,
-        Circum Icons, Radix Icons, Typicons and VS Code Icons.
+        Circum Icons, Radix Icons, Phosphor Icons, Typicons and VS Code Icons.
       </p>
       <div className="grid grid-cols-12 gap-4 place-items-center">
         {IconList.map((icon) => (

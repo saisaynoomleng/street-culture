@@ -21,6 +21,7 @@ export default defineConfig({
   },
 
   document: {
-    newDocumentOptions: (prev) => prev.filter((item) => item.templateId !== 'siteSetting'),
+    newDocumentOptions: (prev) =>
+      prev.filter((item) => !['siteSetting', 'hero'].includes(item.templateId)),
   },
 })
