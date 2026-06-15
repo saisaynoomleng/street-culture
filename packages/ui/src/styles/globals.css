@@ -206,7 +206,7 @@
   }
 
   body {
-    @apply font-body bg-brand-neutral-50 text-brand-neutral-950 leading-normal tracking-normal overflow-x-hidden;
+    @apply font-body bg-brand-neutral-50 text-brand-neutral-950 leading-normal tracking-normal overflow-x-hidden dark:bg-brand-neutral-900 dark:text-brand-neutral-50;
   }
 
   h1,
