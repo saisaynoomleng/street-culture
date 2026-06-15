@@ -1,6 +1,6 @@
 import Bounded from '#components/shared/Bounded.tsx';
 import { FaRegNewspaper } from 'react-icons/fa';
-import { GiNewspaper, GiPencil } from 'react-icons/gi';
+import { GiGearHammer, GiNewspaper, GiPencil } from 'react-icons/gi';
 import { GrCircleQuestion } from 'react-icons/gr';
 import {
   MdCategory,
@@ -20,6 +20,7 @@ const IconList = [
   <SiNike />,
   <MdOutlineStoreMallDirectory />,
   <MdOutlineFormatAlignJustify />,
+  <GiGearHammer />,
 ];
 
 const IconDocs = () => {
