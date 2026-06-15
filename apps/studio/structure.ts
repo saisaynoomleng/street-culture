@@ -1,5 +1,5 @@
 import {FaRegNewspaper} from 'react-icons/fa'
-import {GiNewspaper, GiPencil} from 'react-icons/gi'
+import {GiGearHammer, GiNewspaper, GiPencil} from 'react-icons/gi'
 import {GrCircleQuestion} from 'react-icons/gr'
 import {MdCategory, MdOutlineFormatAlignJustify, MdOutlineStoreMallDirectory} from 'react-icons/md'
 import {SiNike} from 'react-icons/si'
@@ -12,8 +12,8 @@ export const structure: StructureResolver = (S) =>
     .title('Street Culture')
     .items([
       S.divider().title('Operation'),
+      S.documentTypeListItem('siteSetting').title('Site Setting').icon(GiGearHammer),
       S.documentTypeListItem('ourStory').title('Our Stories').icon(VscMilestone),
-
       S.documentTypeListItem('store').title('Stores').icon(MdOutlineStoreMallDirectory),
       S.documentTypeListItem('productContent').title('Products').icon(SiNike),
       S.documentTypeListItem('lookbook').title('Lookbooks').icon(FaRegNewspaper),

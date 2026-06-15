@@ -5,6 +5,7 @@ import {faqs} from './documents/FAQs'
 import {lookbook} from './documents/lookbook'
 import {ourStory} from './documents/ourStory'
 import {productContent} from './documents/productContent'
+import {siteSetting} from './documents/siteSetting'
 import {store} from './documents/store'
 import {homePage} from './pages/homePage'
 import {utilityPage} from './pages/utilityPage'
@@ -38,4 +39,5 @@ export const schemaTypes = [
   productContent,
   lookbook,
   homePage,
+  siteSetting,
 ]
