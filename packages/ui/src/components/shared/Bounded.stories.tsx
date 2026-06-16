@@ -3,49 +3,31 @@ import Bounded from './Bounded';
 import { within, expect } from 'storybook/test';
 
 const meta: Meta<typeof Bounded> = {
-  component: Bounded,
   title: 'Components/Shared/Bounded',
+  tags: ['autodocs'],
+  component: Bounded,
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
-        component:
-          'Layout primitive that constrains content width and applies horizontal spacing.',
+        component: 'A wrapper for the contents on the webpage',
       },
     },
   },
-  tags: ['autodocs'],
 
   args: {
     as: 'section',
-    padding: 'sm',
+    className: 'border',
+    padding: 'md',
     size: 'wide',
-    centered: true,
+    isCentered: true,
+    spacing: 'md',
   },
   argTypes: {
     as: {
-      control: 'text',
-      description: 'HTML semantic tag defining the component',
-    },
-
-    centered: {
-      control: 'boolean',
-      description:
-        'Decided whether the components should be in the centered in larger screens when screen witdth is over 1280px',
-    },
-
-    padding: {
-      control: 'radio',
-      description: 'Add default horizontal padding to the component',
-      table: {
-        type: {
-          summary: `none | sm | md | lg`,
-        },
-      },
-    },
-
-    children: {
       control: false,
+      description:
+        'Choose different HTML component wrapper such as section, div, main. Default to section.',
     },
 
     className: {
@@ -53,12 +35,44 @@ const meta: Meta<typeof Bounded> = {
       description: 'Additional TailwindCSS classes',
     },
 
-    size: {
+    padding: {
       control: 'radio',
-      description: 'Represents the maximum width of the container',
+      options: ['none', 'sm', 'md', 'lg'],
       table: {
         type: {
-          summary: 'Define the maximum width depending on the usecase',
+          summary: 'Set different horizontal padding to the component',
+          detail: `
+            none: '',
+            sm: 'px-4 md:px-6 lg:px-8',
+            md: 'px-6 md:px-8 lg:px-10',
+            lg: 'px-8 md:px-10 lg:px-12',
+          `,
+        },
+      },
+    },
+
+    isCentered: {
+      control: 'boolean',
+      description:
+        'Control the component position in larger screen, whether it needs to be centered or not',
+    },
+
+    children: {
+      as: false,
+      description: 'Represents anything React can render',
+    },
+
+    size: {
+      control: 'radio',
+      options: ['content', 'wide', 'full'],
+      table: {
+        type: {
+          summary: 'Set the maximum width of the component',
+          detail: `
+            content: 'max-w-4xl',
+            wide: 'max-w-7xl',
+            full: 'max-w-none',
+            `,
         },
       },
     },
@@ -71,56 +85,25 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args) => (
     <Bounded {...args}>
+      <h1 className="text-fs-800">Title</h1>
+
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero corporis
-        incidunt dolor similique consectetur ullam sequi repellendus enim cumque
-        autem.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quidem
+        qui mollitia error atque maxime repudiandae quia. Odio, molestiae
+        repellendus.
       </p>
     </Bounded>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const paragraph = canvas.getByRole('paragraph');
-    const section = canvasElement.querySelector('section');
+    const title = canvas.getByRole('heading');
+    const para = canvas.getByRole('paragraph');
+    const parent = canvasElement.querySelector('section');
 
-    await expect(paragraph).toBeInTheDocument();
-    await expect(section).toBeInTheDocument();
-  },
-};
-
-export const Main: Story = {
-  render: (args) => (
-    <Bounded {...args} as="main" centered>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam,
-        eos.
-      </p>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam,
-        eos.
-      </p>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam,
-        eos.
-      </p>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam,
-        eos.
-      </p>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam,
-        eos.
-      </p>
-    </Bounded>
-  ),
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    const children = canvas.getAllByRole('paragraph');
-    const section = canvas.getByRole('main');
-
-    await expect(children).toHaveLength(5);
-    await expect(section).toBeInTheDocument();
+    await expect(title).toBeInTheDocument();
+    await expect(title).toHaveTextContent('Title');
+    await expect(para).toBeInTheDocument();
+    await expect(parent?.tagName).toBe('SECTION');
   },
 };

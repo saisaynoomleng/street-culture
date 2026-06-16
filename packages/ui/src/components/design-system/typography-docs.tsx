@@ -1,44 +1,44 @@
-import { Bounded } from '../shared';
+import Bounded from '#components/shared/Bounded.tsx';
 
 const Headings = [
   {
     name: 'h1',
-    size: '4.5rem/72px',
+    size: 'FS-900/4.5rem/72px',
     weight: 'semibold/600',
     lineHeight: '0.25rem/4px',
     fontSize: '4.5rem',
   },
   {
     name: 'h2',
-    size: '3.75rem/60px',
+    size: 'FS-800/3.75rem/60px',
     weight: 'semibold/600',
     lineHeight: '0.25rem/4px',
     fontSize: '3.75rem',
   },
   {
     name: 'h3',
-    size: '3rem/48px',
+    size: 'FS-700/3rem/48px',
     weight: 'semibold/600',
     lineHeight: '0.25rem/4px',
     fontSize: '3rem',
   },
   {
     name: 'h4',
-    size: '2.25rem/36px',
+    size: 'FS-600/2.25rem/36px',
     weight: 'semibold/600',
     lineHeight: '0.25rem/4px',
     fontSize: '2.25rem',
   },
   {
     name: 'h5',
-    size: '1.5rem/24px',
+    size: 'FS-500/1.5rem/24px',
     weight: 'semibold/600',
     lineHeight: '0.25rem/4px',
     fontSize: '1.5rem',
   },
   {
     name: 'h6',
-    size: '1rem/16px',
+    size: 'FS-400/1rem/16px',
     weight: 'semibold/600',
     lineHeight: '0.25rem/4px',
     fontSize: '1rem',
@@ -106,7 +106,7 @@ const TypographyDocs = () => {
         <div className="flex flex-col gap-y-3">
           <p className="font-semibold">Body</p>
           <div className="flex justify-between items-center text-fs-300 text-neutral-500">
-            <p>Size: 1rem/16px</p>
+            <p>Size: FS-400/1rem/16px</p>
             <p>Weight: regular/400</p>
             <p>Line Height: 1.5</p>
           </div>

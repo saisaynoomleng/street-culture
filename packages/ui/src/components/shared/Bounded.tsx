@@ -1,19 +1,25 @@
-import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
-import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
+import { ComponentPropsWithoutRef, ElementType, JSX, ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
+
+type BoundedProps<T extends ElementType> = {
+  as?: T;
+  className?: string;
+  padding?: Padding;
+  isCentered?: boolean;
+  children: ReactNode;
+  size?: Size;
+} & Omit<ComponentPropsWithoutRef<T>, 'as' | 'className'>;
 
 type Padding = 'none' | 'sm' | 'md' | 'lg';
 type Size = 'content' | 'wide' | 'full';
 
-type BoundedProps<T extends ElementType = 'section'> = {
-  as?: T;
-  children: ReactNode;
-
-  size?: Size;
-  padding?: Padding;
-
-  centered?: boolean;
-} & Omit<ComponentPropsWithoutRef<T>, 'as' | 'children'>;
+const paddingVariants: Record<Padding, string> = {
+  none: '',
+  sm: 'px-4 md:px-6 lg:px-8',
+  md: 'px-6 md:px-8 lg:px-10',
+  lg: 'px-8 md:px-10 lg:px-12',
+};
 
 const sizeVariants: Record<Size, string> = {
   content: 'max-w-4xl',
@@ -21,39 +27,32 @@ const sizeVariants: Record<Size, string> = {
   full: 'max-w-none',
 };
 
-const paddingVariants: Record<Padding, string> = {
-  none: '',
-  sm: 'px-4 md:px-6 lg: px-8',
-  md: 'px-6 md:px-8 lg:px-10',
-  lg: 'px-8 md:px-10 lg:px-12',
-};
-
-const Bounded = <T extends ElementType = 'section'>({
+const Bounded = <T extends ElementType = 'div'>({
   as,
-  children,
   className,
+  padding = 'md',
+  isCentered = true,
   size = 'wide',
-  padding = 'sm',
-  centered = true,
+  children,
   ...props
-}: BoundedProps<T>) => {
-  const Component = as || 'section';
+}: BoundedProps<T>): JSX.Element => {
+  const Comp = as ?? 'section';
 
   return (
-    <Component
+    <Comp
       className={twMerge(
         clsx(
-          'w-full space-y-6 md:space-y-8 lg:space-y-10 py-4 md:py-8',
-          sizeVariants[size],
+          'py-4 md:py-6',
           paddingVariants[padding],
-          centered && 'mx-auto',
+          isCentered && 'mx-auto',
+          sizeVariants[size],
           className,
         ),
       )}
       {...props}
     >
       {children}
-    </Component>
+    </Comp>
   );
 };
 

@@ -24,7 +24,7 @@ export const hero = defineType({
             defineField({
               name: 'text',
               title: 'Text',
-              type: 'localeText',
+              type: 'localeString',
               validation: (rule) => rule.required(),
             }),
             defineField({

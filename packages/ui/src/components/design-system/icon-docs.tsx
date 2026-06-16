@@ -1,4 +1,3 @@
-import Bounded from '#components/shared/Bounded.tsx';
 import { FaRegNewspaper } from 'react-icons/fa';
 import { GiGearHammer, GiNewspaper, GiPencil } from 'react-icons/gi';
 import { GrCircleQuestion } from 'react-icons/gr';
@@ -10,6 +9,8 @@ import {
 import { SiNike } from 'react-icons/si';
 import { VscMilestone } from 'react-icons/vsc';
 import { PiFlagBanner } from 'react-icons/pi';
+import { FaAnglesLeft, FaAnglesRight } from 'react-icons/fa6';
+import Bounded from '#components/shared/Bounded.tsx';
 
 const IconList = [
   <GiPencil />,
@@ -23,6 +24,8 @@ const IconList = [
   <MdOutlineFormatAlignJustify />,
   <GiGearHammer />,
   <PiFlagBanner />,
+  <FaAnglesLeft />,
+  <FaAnglesRight />,
 ];
 
 const IconDocs = () => {

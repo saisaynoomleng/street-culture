@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import Hero from './Hero';
 import { HeroMockDataEn, HeroMockDataKo } from '#lib/mockData.ts';
-import { expect, within } from 'storybook/test';
+import { within, userEvent, expect } from 'storybook/test';
 
 const meta: Meta<typeof Hero> = {
   title: 'Components/Shared/Hero',
@@ -11,7 +11,7 @@ const meta: Meta<typeof Hero> = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Hero Carousel Banner displayed on the Home Page',
+        component: 'Hero Section of the homepage',
       },
     },
   },
@@ -22,30 +22,26 @@ const meta: Meta<typeof Hero> = {
   argTypes: {
     banners: {
       control: false,
-      description: 'An array that includes information for each carousel',
+      description: 'Array of Banners object coming from the CMS',
       table: {
         type: {
-          summary: `Includes Title, Text, Media to display image, Call to Action to go to the page and _key for id.`,
+          summary: 'Each banner include title, text, position, media',
           detail: `
-                title: string;
-                text: string;
-                media: {
-                    imageUrl: string;
-                    imageAlt: string;
-                };
-                callToAction: {
-                    label: string;
-                    href: string;
-                };
-                _key: string;
-            `,
+            title: string;
+            text: string;
+            position: 'left' | 'right';
+            media: {
+                imageUrl: string;
+                imageAlt: string;
+            }
+          `,
         },
       },
     },
 
     className: {
       control: 'text',
-      description: 'Additional TailwindCSS classes',
+      description: 'Additional TailwindCSS class',
     },
   },
 };
@@ -55,8 +51,35 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: (args) => <Hero {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const title = canvas.getByRole('heading');
+    const text = canvas.getByTestId('text');
+    const nextButton = canvas.getByLabelText(/next hero banner/i);
+    const prevButton = canvas.getByLabelText(/prev hero banner/i);
+
+    await expect(title).toBeInTheDocument();
+    await expect(title).toHaveTextContent('2026');
+    await expect(text).toBeInTheDocument();
+    await expect(text).toHaveTextContent('Engineered');
+
+    await userEvent.click(nextButton);
+
+    await expect(title).toBeInTheDocument();
+    await expect(title).toHaveTextContent('Welcome to');
+    await expect(text).toBeInTheDocument();
+    await expect(text).toHaveTextContent('Bypass');
+
+    await userEvent.click(prevButton);
+
+    await expect(title).toBeInTheDocument();
+    await expect(title).toHaveTextContent('2026');
+    await expect(text).toBeInTheDocument();
+    await expect(text).toHaveTextContent('Engineered');
+  },
 };
 
-export const WithLocaleKo: Story = {
+export const LocaleKo: Story = {
   render: (args) => <Hero {...args} banners={HeroMockDataKo.banners} />,
 };

@@ -1,9 +1,9 @@
-import { twMerge } from 'tailwind-merge';
+import { Dispatch, JSX, SetStateAction, useEffect, useState } from 'react';
 import Bounded from './Bounded';
+import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
-import { JSX, useEffect, useState } from 'react';
 import { Button } from '../ui';
-import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
+import { FaAnglesLeft, FaAnglesRight } from 'react-icons/fa6';
 
 type HeroProps = {
   banners: Banner[];
@@ -11,11 +11,10 @@ type HeroProps = {
 };
 
 type Banner = {
-  _key: string;
   title: string;
   text: string;
+  position: 'left' | 'right';
   media: Media;
-  callToAction: CallToAction;
 };
 
 type Media = {
@@ -23,69 +22,82 @@ type Media = {
   imageAlt: string;
 };
 
-type CallToAction = {
-  label: string;
-  href: string;
+type BannerControls = {
+  setCurrentIndex: Dispatch<SetStateAction<number>>;
+  banners: Banner[];
+};
+
+const handleNext = ({ setCurrentIndex, banners }: BannerControls): void => {
+  setCurrentIndex((prev) => (prev === banners.length - 1 ? 0 : prev + 1));
+};
+const handlePrev = ({ setCurrentIndex, banners }: BannerControls): void => {
+  setCurrentIndex((prev) => (prev === 0 ? banners.length - 1 : prev - 1));
 };
 
 const Hero = ({ banners, className }: HeroProps): JSX.Element | null => {
   if (!banners.length) return null;
 
-  const [currentBannerIndex, setCurrentBannerIndex] = useState<number>(0);
-
-  const currentBanner = banners[currentBannerIndex];
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const currentBanner = banners[currentIndex];
 
   if (!currentBanner) return null;
 
-  const nextBanner = (): void => {
-    setCurrentBannerIndex((prev) =>
-      prev === banners.length - 1 ? 0 : prev + 1,
-    );
-  };
-
-  const prevBanner = (): void => {
-    setCurrentBannerIndex((prev) =>
-      prev === 0 ? banners.length - 1 : prev - 1,
-    );
-  };
-
   useEffect(() => {
-    const intervalId = setInterval(nextBanner, 2000);
+    const interval = setInterval(
+      () => handleNext({ setCurrentIndex, banners }),
+      3000,
+    );
 
-    return () => clearInterval(intervalId);
+    return () => clearInterval(interval);
   }, [banners.length]);
 
   return (
     <Bounded
+      aria-label="hero banner"
+      as="section"
       className={twMerge(
         clsx(
-          'h-screen flex items-end border bg-cover bg-no-repeat bg-center',
+          'min-h-screen bg-no-repeat bg-cover bg-center flex items-end',
+          currentBanner.position === 'left'
+            ? 'md:justify-start'
+            : 'md:justify-end',
           className,
         ),
       )}
-      style={{
-        backgroundImage: `url(${currentBanner.media.imageUrl})`,
-      }}
+      style={{ backgroundImage: `url(${currentBanner.media.imageUrl})` }}
     >
       <div
         className={twMerge(
           clsx(
-            'flex flex-col text-neutral-50 md:max-w-100 bg-neutral-50/5 backdrop-blur-xl p-10 gap-y-3',
+            'flex flex-col gap-y-3 max-w-100 bg-neutral-50/10 px-2 md:px-4 py-6 max-md:text-fs-300 backdrop-blur-2xl text-neutral-50',
           ),
         )}
       >
-        <h2 className="text-fs-600 font-semibold">{currentBanner.title}</h2>
-        <p className="font-medium">{currentBanner.text}</p>
+        <h1 className="text-fs-500 md:text-fs-600 lg:text-fs-700 font-heading font-semibold">
+          {currentBanner.title}
+        </h1>
+        <p data-testid="text">{currentBanner.text}</p>
 
-        <div className="flex justify-between items-center">
-          <Button onClick={prevBanner}>
-            <FaAngleLeft />
+        <div className="flex items-center justify-between">
+          <Button
+            className="bg-brand-neutral-950 text-brand-neutral-50"
+            onClick={() => handlePrev({ setCurrentIndex, banners })}
+            aria-label="Prev Hero banner"
+          >
+            <FaAnglesLeft />
           </Button>
+
           <p>
-            0{currentBannerIndex + 1} / 0{banners.length}
+            {String(currentIndex + 1).padStart(2, '0')} /{' '}
+            {String(banners.length).padStart(2, '0')}
           </p>
-          <Button onClick={nextBanner}>
-            <FaAngleRight />
+
+          <Button
+            className="bg-brand-neutral-950 text-brand-neutral-50"
+            onClick={() => handleNext({ setCurrentIndex, banners })}
+            aria-label="Next hero banner"
+          >
+            <FaAnglesRight />
           </Button>
         </div>
       </div>
