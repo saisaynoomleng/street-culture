@@ -4,3 +4,5 @@ export * from './SectionTitle';
 export * from './Hero';
 export * from './BlogCard';
 export * from './CategoryCard';
+export * from './ColorBlock';
+export * from './ProductCard';
