@@ -2,76 +2,70 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import SectionTitle from './SectionTitle';
 import { expect, within } from 'storybook/test';
 
-const meta = {
+const meta: Meta<typeof SectionTitle> = {
   title: 'Components/Shared/SectionTitle',
+  component: SectionTitle,
   tags: ['autodocs'],
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Title to display on each section on the webpage',
+        component: "Section title such as 'Featured Products', 'Blogs', etc ",
       },
     },
   },
-  component: SectionTitle,
 
   args: {
     as: 'h2',
+    label: 'Featured Products',
+    className: 'text-center',
   },
-
   argTypes: {
     as: {
       control: 'radio',
-      description: 'Different Heading Tags for the components except H1',
       options: ['h2', 'h3', 'h4', 'h5', 'h6'],
-      table: {
-        type: {
-          summary:
-            'Has default tag of "h2" with capitalization every word, font weight of 600 and font size of 24px.',
-          detail: `h2 | h3 | h4 | h5 | h6`,
-        },
-      },
+      description: 'Set the different headings for the section title',
     },
 
     className: {
       control: 'text',
-      description: 'Additional TailwindCSS classes.',
+      description: 'Additional TailwindCSS classes',
     },
 
-    children: {
-      control: false,
+    label: {
+      control: 'text',
+      description: 'Text for the Section Title',
     },
-  },
-} satisfies Meta;
 
-export default meta;
-type Story = StoryObj<typeof SectionTitle>;
-
-export const Default: Story = {
-  render: (args) => <SectionTitle {...args}>Elevate Your Style</SectionTitle>,
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    const heading = canvas.getByRole('heading');
-
-    await expect(heading).toBeInTheDocument();
-    await expect(heading?.tagName).toBe('H2');
+    size: {
+      control: 'radio',
+      options: ['sm', 'md', 'lg'],
+      table: {
+        type: {
+          summary: `Set the different font sizes of the title`,
+          detail: `
+            sm: 'text-fs-400 md:text-fs-500 lg:text-fs-600',
+            md: 'text-fs-500 md:text-fs-600 lg:text-fs-700',
+            lg: 'text-fs-600 md:text-fs-800 lg:text-fs-900',
+            `,
+        },
+      },
+    },
   },
 };
 
-export const DifferentHeading: Story = {
-  render: (args) => (
-    <SectionTitle {...args} as="h5">
-      Heading Tag H5
-    </SectionTitle>
-  ),
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  render: (args) => <SectionTitle {...args} />,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const heading = canvas.getByRole('heading');
+    const title = canvas.getByText(/featured products/i);
 
-    await expect(heading).toBeInTheDocument();
-    await expect(heading?.tagName).toBe('H5');
-    await expect(heading).toHaveTextContent(/heading tag h5/i);
+    await expect(title).toBeInTheDocument();
+    await expect(title).toHaveTextContent('Featured Products');
+    await expect(title?.tagName).toBe('H2');
   },
 };

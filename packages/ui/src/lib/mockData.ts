@@ -10,7 +10,7 @@ export const BlogMockDataEn = {
 };
 
 export const BlogMockDataKo = {
-  name: 'Forget Euro Summer—European Brands Say It’s New York or Nowhere',
+  name: '유럽 여름은 잊어라—유럽 브랜드들은 뉴욕 아니면 안 된다고 말해',
   publishedAt: '2026-06-10',
   slug: 'forget-euro-summer-european-brands-say-it-s-new-york-or-nowhere',
   imageUrl:
@@ -23,7 +23,6 @@ export const BlogMockDataKo = {
 export const HeroMockDataEn = {
   banners: [
     {
-      _key: '1',
       title: 'Concrete Runaways // Summer 2026',
       text: 'Engineered for the heavy impact of street culture. Explore our latest heavyweight graphic tees, destroyed denim, and pro-spec Canadian Maple skate decks. Styled raw on the streets of Seoul and NYC.',
       media: {
@@ -35,10 +34,9 @@ export const HeroMockDataEn = {
         label: 'Explore',
         href: '/',
       },
-      position: 'left',
+      position: 'left' as const,
     },
     {
-      _key: '2',
       title: 'Welcome to the Drop Club Elite',
       text: 'Bypass the retail bots. Secure guaranteed server-side access to limited-edition collaborative drops, member-only visual lookbooks, and automatic 10% point multipliers on every transaction.',
       media: {
@@ -50,7 +48,7 @@ export const HeroMockDataEn = {
         label: 'Explore',
         href: '/',
       },
-      position: 'right',
+      position: 'right' as const,
     },
   ],
 };
@@ -58,7 +56,6 @@ export const HeroMockDataEn = {
 export const HeroMockDataKo = {
   banners: [
     {
-      _key: '3',
       title: '디지털 코어. 콘크리트 현실.',
       text: '온라인으로 구매하고, 매장을 방문해 현장을 느껴보세요. 강남, 소호, 제주 플래그십 허브의 실시간 재고를 확인하실 수 있습니다. 주문은 즉시 원장에 고정되며 2시간 이내에 수령 가능합니다.',
       media: {
@@ -70,10 +67,9 @@ export const HeroMockDataKo = {
         label: '탐험하기',
         href: '/',
       },
-      position: 'right',
+      position: 'right' as const,
     },
     {
-      _key: '4',
       title: '헤비웨이트 아머: 블랭크 시리즈',
       text: '브랜딩도, 소음도 없이. 오버사이즈 핏을 영원히 유지하도록 설계된 500GSM 초고밀도 커스텀 룹백 코튼 가먼츠. 변동 수수료 없는 고정 달러(USD) 및 원화(KRW) 가격으로 지금 만나보세요.',
       media: {
@@ -85,7 +81,10 @@ export const HeroMockDataKo = {
         label: '탐험하기',
         href: '/',
       },
-      position: 'left',
+      position: 'left' as const,
     },
   ],
 };
+
+export const mockPhoto =
+  'https://i.pinimg.com/736x/5b/8d/e5/5b8de5b0b63bfeba8c6c42879fa880d9.jpg';

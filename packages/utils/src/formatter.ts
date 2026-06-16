@@ -1,3 +1,8 @@
+/**
+ * Capitalize every word in a string
+ * @param title string
+ * @returns string
+ */
 export const formatTitle = (title: string): string => {
   if (!title) return '';
 
@@ -15,10 +20,44 @@ export const formatTitle = (title: string): string => {
     .join(' ');
 };
 
+/**
+ * Format date to display better date format on website
+ * @param date string | Date
+ * @returns string
+ */
 export const formatDate = (date: string | Date): string => {
   return new Date(date).toLocaleDateString(undefined, {
     day: '2-digit',
     month: 'short',
     year: 'numeric',
   });
+};
+
+/**
+ * Format the currency based on US dollar and Korean Won
+ * @param price number
+ * @param currency 'usd' | 'krw'
+ * @returns string
+ */
+export const formatCurrency = (
+  price: number,
+  currency: 'usd' | 'krw',
+): string => {
+  return new Intl.NumberFormat(undefined, {
+    currency,
+    style: 'currency',
+  }).format(price);
+};
+
+/**
+ * Calculate the final price if there is a discount percent on the product
+ * @param price number
+ * @param discount number
+ * @returns number
+ */
+export const calculateDiscountPrice = (
+  price: number,
+  discount: number,
+): number => {
+  return price * (1 - discount / 100);
 };

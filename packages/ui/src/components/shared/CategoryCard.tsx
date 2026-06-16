@@ -1,14 +1,12 @@
 import { twMerge } from 'tailwind-merge';
 import Bounded from './Bounded';
 import clsx from 'clsx';
-import { formatDate } from '@street-culture/utils';
 
-type BlogCardProps = {
+type CategoryCardProps = {
   className?: string;
   media: Media;
-  publishedAt: string | Date;
   title: string;
-  excerpt: string;
+  numberInStocks: number;
 };
 
 type Media = {
@@ -16,17 +14,19 @@ type Media = {
   imageAlt: string;
 };
 
-const BlogCard = ({
+const CategoryCard = ({
   className,
   media,
-  publishedAt,
   title,
-  excerpt,
-}: BlogCardProps) => {
+  numberInStocks,
+}: CategoryCardProps) => {
   return (
     <Bounded
       as="div"
-      className={twMerge(clsx('w-100 h-120 flex flex-col gap-y-2', className))}
+      className={twMerge(
+        clsx('flex flex-col gap-y-2 w-100 h-100 aspect-square', className),
+      )}
+      aria-label={`${title} category card`}
     >
       <div className="overflow-hidden border-4">
         <img
@@ -37,15 +37,15 @@ const BlogCard = ({
         />
       </div>
 
-      <div className="flex flex-col gap-y-1">
+      <div className="flex justify-between items-center">
         <p className="font-semibold">{title}</p>
-        <p className="text-fs-300 font-semibold text-brand-neutral-500">
-          {formatDate(publishedAt)}
+        <p>
+          <span className="font-semibold">{numberInStocks}</span> products in
+          stocks
         </p>
-        <p className="text-ellipsis overflow-hidden">{excerpt}</p>
       </div>
     </Bounded>
   );
 };
 
-export default BlogCard;
+export default CategoryCard;
