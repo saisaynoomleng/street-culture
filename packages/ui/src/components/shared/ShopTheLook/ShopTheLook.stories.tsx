@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { mockShopTheLookEn, mockShopTheLookKo } from '#lib/mockData.ts';
-import ShopTheLook from './ShopTheLook';
+import { mockShopTheLookEn, mockShopTheLookKo } from '@/lib/mockData.ts';
 import { expect, within } from 'storybook/test';
+import { ShopTheLook } from './ShopTheLook';
+import { ShopTheLookSkeleton } from './ShopTheLookSkeleton';
 
 const meta: Meta<typeof ShopTheLook> = {
   title: 'Components/Shared/ShopTheLook',
@@ -47,4 +48,8 @@ export const LocaleKo: Story = {
       hotspots={mockShopTheLookKo.hotspots}
     />
   ),
+};
+
+export const Loading = {
+  render: () => <ShopTheLookSkeleton />,
 };

@@ -19,7 +19,7 @@ const sizeVariants: Record<Size, string> = {
   lg: 'text-fs-600 md:text-fs-800 lg:text-fs-900',
 };
 
-const SectionTitle = <T extends Headings>({
+export const SectionTitle = <T extends Headings>({
   as,
   className,
   label,
@@ -40,5 +40,3 @@ const SectionTitle = <T extends Headings>({
     </Comp>
   );
 };
-
-export default SectionTitle;

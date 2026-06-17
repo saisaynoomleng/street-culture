@@ -1,4 +1,4 @@
-import Bounded from '#components/shared/Bounded.tsx';
+import Bounded from '@/components/shared/Bounded/Bounded';
 
 const Headings = [
   {

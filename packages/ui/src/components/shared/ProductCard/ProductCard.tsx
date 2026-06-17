@@ -1,9 +1,10 @@
-import { JSX } from 'react';
-import Bounded from './Bounded';
+import { JSX, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
 import { calculateDiscountPrice, formatCurrency } from '@street-culture/utils';
-import ColorBlock from './ColorBlock';
+import { Bounded } from '../Bounded';
+import { ColorBlock } from '../ColorBlock';
+import { ImageProps, Media } from '@/lib/types';
 
 type ProductCardProps = {
   className?: string;
@@ -13,11 +14,7 @@ type ProductCardProps = {
   price: number;
   currency: 'usd' | 'krw';
   colors: Color[];
-};
-
-type Media = {
-  imageUrl: string;
-  imageAlt: string;
+  renderImage: (props: ImageProps) => ReactNode;
 };
 
 type Color =
@@ -25,7 +22,7 @@ type Color =
   | `rgb(${number} ${number} ${number})`
   | `rgba(${number} ${number} ${number})/${number}`;
 
-const ProductCard = ({
+export const ProductCard = ({
   className,
   media,
   discountInPercent,
@@ -33,6 +30,7 @@ const ProductCard = ({
   price,
   currency,
   colors,
+  renderImage,
 }: ProductCardProps): JSX.Element => {
   const finalPrice = discountInPercent
     ? calculateDiscountPrice(price, discountInPercent)
@@ -42,16 +40,15 @@ const ProductCard = ({
     <Bounded
       as="div"
       className={twMerge(
-        clsx('flex flex-col gap-y-2 w-100 h-100 group', className),
+        clsx('flex flex-col gap-y-2 max-w-100 h-100 group', className),
       )}
     >
-      <div className="overflow-hidden relative border-4">
-        <img
-          loading="lazy"
-          src={media.imageUrl}
-          alt={media.imageAlt}
-          className="object-cover relative group-hover:scale-[1.04] transition-transform duration-200 ease-in-out"
-        />
+      <div className="overflow-hidden relative border-4 aspect-square">
+        {renderImage({
+          src: media.imageUrl,
+          alt: media.imageAlt,
+          className: 'w-full h-full object-cover',
+        })}
 
         <div className="flex flex-col gap-y-1 absolute right-1 top-1">
           {discountInPercent && (
@@ -84,5 +81,3 @@ const ProductCard = ({
     </Bounded>
   );
 };
-
-export default ProductCard;

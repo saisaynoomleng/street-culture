@@ -1,7 +1,9 @@
 import { twMerge } from 'tailwind-merge';
-import Bounded from './Bounded';
 import clsx from 'clsx';
 import { formatDate } from '@street-culture/utils';
+import { ReactNode } from 'react';
+import { ImageProps, Media } from '@/lib/types';
+import { Bounded } from '../Bounded';
 
 type BlogCardProps = {
   className?: string;
@@ -9,32 +11,30 @@ type BlogCardProps = {
   publishedAt: string | Date;
   title: string;
   excerpt: string;
+  renderImage: (props: ImageProps) => ReactNode;
 };
 
-type Media = {
-  imageUrl: string;
-  imageAlt: string;
-};
-
-const BlogCard = ({
+export const BlogCard = ({
   className,
   media,
   publishedAt,
   title,
   excerpt,
+  renderImage,
 }: BlogCardProps) => {
   return (
     <Bounded
       as="div"
-      className={twMerge(clsx('w-100 h-120 flex flex-col gap-y-2', className))}
+      className={twMerge(
+        clsx('max-w-100 h-120 flex flex-col gap-y-2', className),
+      )}
     >
-      <div className="overflow-hidden border-4">
-        <img
-          loading="lazy"
-          src={media.imageUrl}
-          alt={media.imageAlt}
-          className="object-cover"
-        />
+      <div className="overflow-hidden border-4 relative aspect-square">
+        {renderImage({
+          src: media.imageUrl,
+          alt: media.imageAlt,
+          className: 'w-full h-full object-cover',
+        })}
       </div>
 
       <div className="flex flex-col gap-y-1">
@@ -47,5 +47,3 @@ const BlogCard = ({
     </Bounded>
   );
 };
-
-export default BlogCard;

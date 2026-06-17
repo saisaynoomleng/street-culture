@@ -1,9 +1,10 @@
 import { Dispatch, JSX, SetStateAction, useEffect, useState } from 'react';
-import Bounded from './Bounded';
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
-import { Button } from '../ui';
 import { FaAnglesLeft, FaAnglesRight } from 'react-icons/fa6';
+import { Bounded } from '../Bounded';
+import { Button } from '@/components/ui';
+import { Media } from '@/lib/types';
 
 type HeroProps = {
   banners: Banner[];
@@ -15,11 +16,6 @@ type Banner = {
   text: string;
   position: 'left' | 'right';
   media: Media;
-};
-
-type Media = {
-  imageUrl: string;
-  imageAlt: string;
 };
 
 type BannerControls = {
@@ -34,7 +30,7 @@ const handlePrev = ({ setCurrentIndex, banners }: BannerControls): void => {
   setCurrentIndex((prev) => (prev === 0 ? banners.length - 1 : prev - 1));
 };
 
-const Hero = ({ banners, className }: HeroProps): JSX.Element | null => {
+export const Hero = ({ banners, className }: HeroProps): JSX.Element | null => {
   if (!banners.length) return null;
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -104,5 +100,3 @@ const Hero = ({ banners, className }: HeroProps): JSX.Element | null => {
     </Bounded>
   );
 };
-
-export default Hero;

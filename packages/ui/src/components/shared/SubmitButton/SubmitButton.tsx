@@ -1,17 +1,17 @@
-import { Button } from '../ui';
 import { useFormStatus } from 'react-dom';
-import { LoadingSpinner } from './LoadingSpinner';
 import { JSX, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
 import { CiPaperplane } from 'react-icons/ci';
+import { Button } from '@/components/ui';
+import { LoadingSpinner } from '../LoadingSpinner';
 
 type SubmitButtonProps = {
   className?: string;
   children: ReactNode;
 };
 
-const SubmitButton = ({
+export const SubmitButton = ({
   className,
   children,
 }: SubmitButtonProps): JSX.Element => {
@@ -36,5 +36,3 @@ const SubmitButton = ({
     </Button>
   );
 };
-
-export default SubmitButton;

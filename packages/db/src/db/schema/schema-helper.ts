@@ -73,3 +73,9 @@ export const invoiceStatus = t.pgEnum('invoiceStatus', [
   'paid',
   'canceled',
 ]);
+
+export const pageReviewStatus = t.pgEnum('pageReviewStatus', [
+  'new',
+  'verified',
+  'spam',
+]);

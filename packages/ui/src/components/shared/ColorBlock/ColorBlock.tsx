@@ -10,7 +10,7 @@ type ColorBlockProps = {
   className?: string;
 } & ComponentPropsWithoutRef<'div'>;
 
-const ColorBlock = ({ color, className, ...props }: ColorBlockProps) => {
+export const ColorBlock = ({ color, className, ...props }: ColorBlockProps) => {
   return (
     <div
       style={{ backgroundColor: color }}
@@ -19,5 +19,3 @@ const ColorBlock = ({ color, className, ...props }: ColorBlockProps) => {
     />
   );
 };
-
-export default ColorBlock;

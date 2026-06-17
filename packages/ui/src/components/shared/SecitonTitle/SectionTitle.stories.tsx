@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import SectionTitle from './SectionTitle';
 import { expect, within } from 'storybook/test';
+import { SectionTitle } from './SectionTitle';
 
 const meta: Meta<typeof SectionTitle> = {
   title: 'Components/Shared/SectionTitle',

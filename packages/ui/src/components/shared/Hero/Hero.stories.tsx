@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import Hero from './Hero';
-import { HeroMockDataEn, HeroMockDataKo } from '#lib/mockData.ts';
+import { HeroMockDataEn, HeroMockDataKo } from '@/lib/mockData.ts';
 import { within, userEvent, expect } from 'storybook/test';
+import { HeroSkeleton } from './HeroSkeleton';
+import { Hero } from './Hero';
 
 const meta: Meta<typeof Hero> = {
   title: 'Components/Shared/Hero',
@@ -82,4 +83,8 @@ export const Default: Story = {
 
 export const LocaleKo: Story = {
   render: (args) => <Hero {...args} banners={HeroMockDataKo.banners} />,
+};
+
+export const Loading = {
+  render: () => <HeroSkeleton />,
 };

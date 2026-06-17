@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import BlogCard from './BlogCard';
-import { BlogMockDataEn, BlogMockDataKo } from '#lib/mockData.ts';
+import { BlogMockDataEn, BlogMockDataKo } from '@/lib/mockData.ts';
 import { expect, within } from 'storybook/test';
+import { BlogCardSkeleton } from './BlogCardSkeleton';
+import { BlogCard } from './BlogCard';
 
 const meta: Meta<typeof BlogCard> = {
   title: 'Components/Shared/BlogCard',
@@ -55,6 +56,11 @@ const meta: Meta<typeof BlogCard> = {
       control: 'text',
       description: 'A short summary of the blog',
     },
+
+    renderImage: {
+      control: false,
+      description: 'Image component to render in Next.js',
+    },
   },
 };
 
@@ -62,7 +68,18 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: (args) => <BlogCard {...args} />,
+  render: (args) => (
+    <BlogCard
+      {...args}
+      renderImage={(props) => (
+        <img
+          src={props.src}
+          alt={props.alt}
+          className="w-full h-full object-cover"
+        />
+      )}
+    />
+  ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
@@ -92,6 +109,17 @@ export const LocaleKo: Story = {
       {...args}
       title={BlogMockDataKo.name}
       excerpt={BlogMockDataKo.excerpt}
+      renderImage={(props) => (
+        <img
+          src={props.src}
+          alt={props.alt}
+          className="w-full h-full object-cover"
+        />
+      )}
     />
   ),
+};
+
+export const Loading = {
+  render: () => <BlogCardSkeleton />,
 };
