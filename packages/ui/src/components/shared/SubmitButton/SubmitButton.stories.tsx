@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import SubmitButton from './SubmitButton';
+import { SubmitButton } from './SubmitButton';
 
 const meta: Meta<typeof SubmitButton> = {
   title: 'Components/Shared/SubmitButton',

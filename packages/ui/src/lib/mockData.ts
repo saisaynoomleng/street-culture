@@ -1,7 +1,4 @@
-type Color =
-  | `#${string}`
-  | `rgb(${number} ${number} ${number})`
-  | `rgba(${number} ${number} ${number})/${number}`;
+import { Color } from './types';
 
 export const BlogMockDataEn = {
   name: 'Forget Euro Summer—European Brands Say It’s New York or Nowhere',
@@ -260,4 +257,14 @@ export const mockShopTheLookKo = {
       y: 90,
     },
   ],
+};
+
+export const mockReviewCard = {
+  fullName: 'Saya Misaki',
+  role: 'blogger',
+  media: {
+    imageUrl: mockPhoto,
+    imageAlt: 'asdf',
+  },
+  text: 'Engineered for the heavy impact of street culture. Explore our latest heavyweight graphic tees, destroyed denim, and pro-spec Canadian Maple skate decks. Styled raw on the streets of Seoul and NYC.',
 };

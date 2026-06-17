@@ -1,7 +1,8 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 import tailwindcss from '@tailwindcss/vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
-import { dirname } from 'path';
+import path, { dirname } from 'path';
 
 import { fileURLToPath } from 'url';
 import { mergeConfig } from 'vitest/config';
@@ -20,12 +21,12 @@ const config: StorybookConfig = {
     getAbsolutePath('@storybook/addon-vitest'),
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-docs'),
-    getAbsolutePath("@storybook/addon-themes")
+    getAbsolutePath('@storybook/addon-themes'),
   ],
   framework: getAbsolutePath('@storybook/react-vite'),
   viteFinal: async (viteConfig) =>
     mergeConfig(viteConfig, {
-      plugins: [tailwindcss()],
+      plugins: [tailwindcss(), tsconfigPaths()],
     }),
 };
 export default config;

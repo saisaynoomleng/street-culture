@@ -7,11 +7,6 @@
     "build-storybook": "storybook build",
     "build": "tsc -p tsconfig.build.json"
   },
-  "imports": {
-    "#components/*": "./src/components/*",
-    "#lib/*": "./src/lib/*",
-    "#hooks/*": "./src/hooks/*"
-  },
   "dependencies": {
     "@street-culture/utils": "workspace:*",
     "class-variance-authority": "^0.7.1",
@@ -42,13 +37,13 @@
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4",
     "typescript": "^6.0.3",
+    "vite-tsconfig-paths": "^6.1.1",
     "vitest": "^4.1.8"
   },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "module": "./dist/index.js",
-      "default": "./src/index.ts"
+      "module": "./dist/index.js"
     },
     "./styles/css": "./src/styles/globals.css"
   }

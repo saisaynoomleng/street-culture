@@ -1,19 +1,15 @@
-import Bounded from './Bounded';
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
 import { useState } from 'react';
-import ProductCard from './ProductCard';
+import { Bounded } from '../Bounded';
+import { ProductCard } from '../ProductCard';
+import { Color, Media } from '@/lib/types';
 
 type ShopTheLookProps = {
   title: string;
   media: Media;
   hotspots: Hotspot[];
   className?: string;
-};
-
-type Media = {
-  imageUrl: string;
-  imageAlt: string;
 };
 
 type Hotspot = {
@@ -27,12 +23,7 @@ type Hotspot = {
   y: number;
 };
 
-type Color =
-  | `#${string}`
-  | `rgb(${number} ${number} ${number})`
-  | `rgba(${number} ${number} ${number})/${number}`;
-
-const ShopTheLook = ({
+export const ShopTheLook = ({
   title,
   media,
   hotspots,
@@ -86,10 +77,15 @@ const ShopTheLook = ({
             hotspots[currentIndex]?.discountInPercent as number
           }
           price={hotspots[currentIndex]?.price as number}
+          renderImage={(props) => (
+            <img
+              src={props.src}
+              alt={props.alt}
+              className="w-full h-full object-cover"
+            />
+          )}
         />
       </div>
     </Bounded>
   );
 };
-
-export default ShopTheLook;

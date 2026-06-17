@@ -27,7 +27,7 @@ const sizeVariants: Record<Size, string> = {
   full: 'max-w-none',
 };
 
-const Bounded = <T extends ElementType = 'div'>({
+export const Bounded = <T extends ElementType = 'div'>({
   as,
   className,
   padding = 'md',
@@ -55,5 +55,3 @@ const Bounded = <T extends ElementType = 'div'>({
     </Comp>
   );
 };
-
-export default Bounded;

@@ -20,3 +20,4 @@ export * from './newsletter-subscription.schema';
 export * from './wishlists.schema';
 export * from './stores.schema';
 export * from './store-inventories.schema';
+export * from './page-review.schema';

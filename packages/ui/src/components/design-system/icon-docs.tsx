@@ -11,7 +11,7 @@ import { VscMilestone } from 'react-icons/vsc';
 import { PiFlagBanner } from 'react-icons/pi';
 import { FaAnglesLeft, FaAnglesRight } from 'react-icons/fa6';
 import { GrWorkshop } from 'react-icons/gr';
-import Bounded from '#components/shared/Bounded.tsx';
+import Bounded from '@/components/shared/Bounded/Bounded';
 
 const IconList = [
   <GiPencil />,

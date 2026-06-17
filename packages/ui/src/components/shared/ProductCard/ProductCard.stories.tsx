@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import ProductCard from './ProductCard';
 import { expect, within } from 'storybook/test';
+import { ProductCard } from './ProductCard';
+import { ProductCardSkeleton } from './ProductCardSkeleton';
 
 const meta: Meta<typeof ProductCard> = {
   title: 'Components/Shared/ProductCard',
@@ -84,6 +85,11 @@ const meta: Meta<typeof ProductCard> = {
         },
       },
     },
+
+    renderImage: {
+      control: false,
+      description: `Image Component to render in Next.js`,
+    },
   },
 };
 
@@ -91,7 +97,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: (args) => <ProductCard {...args} />,
+  render: (args) => (
+    <ProductCard
+      {...args}
+      renderImage={(props) => <img src={props.src} alt={props.alt} />}
+    />
+  ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
@@ -123,6 +134,11 @@ export const LocaleKo: Story = {
       currency="krw"
       price={200000}
       discountInPercent={22}
+      renderImage={(props) => <img src={props.src} alt={props.alt} />}
     />
   ),
+};
+
+export const Loading = {
+  render: () => <ProductCardSkeleton />,
 };

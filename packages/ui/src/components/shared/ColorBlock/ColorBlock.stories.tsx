@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import ColorBlock from './ColorBlock';
-import { expect, within } from 'storybook/test';
+import { expect } from 'storybook/test';
+import { ColorBlock } from './ColorBlock';
 
 const meta: Meta<typeof ColorBlock> = {
   title: 'Components/Shared/ColorBlock',

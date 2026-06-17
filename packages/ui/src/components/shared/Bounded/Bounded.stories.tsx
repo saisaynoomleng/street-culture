@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import Bounded from './Bounded';
 import { within, expect } from 'storybook/test';
+import { Bounded } from './Bounded';
 
 const meta: Meta<typeof Bounded> = {
   title: 'Components/Shared/Bounded',
