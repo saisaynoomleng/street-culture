@@ -27,7 +27,64 @@ const meta: Meta<typeof ProductCard> = {
     currency: 'usd',
     price: 200,
   },
-  argTypes: {},
+  argTypes: {
+    className: {
+      control: 'text',
+      description: 'Additional TailwindCSS classes',
+    },
+
+    media: {
+      control: false,
+      table: {
+        type: {
+          summary: `Product Image URL and alternative text`,
+          detail: `
+            imageUrl: string;
+            imageAlt: string
+          `,
+        },
+      },
+    },
+
+    discountInPercent: {
+      control: 'number',
+      description: 'Product discount percentage in number',
+    },
+
+    title: {
+      control: 'text',
+      description: 'Product Name',
+    },
+
+    price: {
+      control: 'number',
+      description: 'Product Price',
+    },
+
+    colors: {
+      control: false,
+      table: {
+        type: {
+          summary:
+            'An array of color codes to display avaialable colors of the product',
+          detail: `
+                hex: #000000;
+                rgb: rgb(255 255 255);
+                rgba: rgba(255 255 255 / 100);
+            `,
+        },
+      },
+    },
+
+    currency: {
+      control: 'radio',
+      table: {
+        type: {
+          summary: `Product price in U.S. Dollars and Korean Won`,
+        },
+      },
+    },
+  },
 };
 
 export default meta;

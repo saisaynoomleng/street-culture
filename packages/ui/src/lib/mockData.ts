@@ -1,3 +1,8 @@
+type Color =
+  | `#${string}`
+  | `rgb(${number} ${number} ${number})`
+  | `rgba(${number} ${number} ${number})/${number}`;
+
 export const BlogMockDataEn = {
   name: 'Forget Euro Summer—European Brands Say It’s New York or Nowhere',
   publishedAt: '2026-06-10',
@@ -88,3 +93,171 @@ export const HeroMockDataKo = {
 
 export const mockPhoto =
   'https://i.pinimg.com/736x/5b/8d/e5/5b8de5b0b63bfeba8c6c42879fa880d9.jpg';
+
+export const mockShopTheLookEn = {
+  title: 'Urban Edge: Street Style Outfit Inspo',
+  media: {
+    imageUrl:
+      'https://cdn.sanity.io/images/g8wycn5o/production/92e862943354141d40d82e5403da1b82be96b04a-736x1308.jpg',
+    imageAlt: 'woman standing',
+  },
+  hotspots: [
+    {
+      title:
+        'SOJOS Polarized Sunglasses For Women Retro Rectangle Womens Sun Glasses Trendy Narrow Square 90s Shades SJ2232',
+      price: 200,
+      discountInPercent: 10,
+      currency: 'usd' as const,
+      colors: ['#8c5841'] as Color[],
+      media: {
+        imageUrl:
+          'https://cdn.sanity.io/images/g8wycn5o/production/eb40826e70070b0e086cb3526ecb025ff8f576af-569x236.jpg',
+        imageAlt: 'asdf;alskdjf',
+      },
+      x: 50,
+      y: 14,
+    },
+    {
+      title: 'Vince Camuto Silvertone Trio Chain Layered Necklace',
+      price: 122,
+      discountInPercent: 16,
+      currency: 'usd' as const,
+      colors: ['#b79649'] as Color[],
+      media: {
+        imageUrl:
+          'https://cdn.sanity.io/images/g8wycn5o/production/329d98cdcf7f24359f93c09af94a02d4255bf5c2-607x535.jpg',
+        imageAlt: 'asdf;alskdjf',
+      },
+      x: 50,
+      y: 30,
+    },
+    {
+      title:
+        'Red Plaid Shirt Women Plaid Shirts for Women Oversized Button Down Long Sleeve Casual Tunic Blouse',
+      price: 255,
+      discountInPercent: 36,
+      currency: 'usd' as const,
+      colors: ['#935c58'] as Color[],
+      media: {
+        imageUrl:
+          'https://cdn.sanity.io/images/g8wycn5o/production/723cb1cb7ecee20824659633e278804124c17f95-679x715.jpg',
+        imageAlt: 'asdf;alskdjf',
+      },
+      x: 70,
+      y: 45,
+    },
+    {
+      title:
+        'Womens Casual Wide Leg Barrel Pants Baggy Low Rise Relaxed Slouchy Trousers Large Patch Pockets Soft Pull On Bottoms',
+      price: 55,
+      discountInPercent: 8,
+      currency: 'usd' as const,
+      colors: ['#b79649'] as Color[],
+      media: {
+        imageUrl:
+          'https://cdn.sanity.io/images/g8wycn5o/production/aa93dfe88c080d69a55114a44e0fadce8d2cd951-367x550.jpg',
+        imageAlt: 'asdf;alskdjf',
+      },
+      x: 50,
+      y: 60,
+    },
+    {
+      title: 'Nike Air More Uptempo (Big Kid)',
+      price: 300,
+      discountInPercent: 22,
+      currency: 'usd' as const,
+      colors: ['#fc983b'] as Color[],
+      media: {
+        imageUrl:
+          'https://cdn.sanity.io/images/g8wycn5o/production/754e715e9fab57a07d4c80d803cd2c930b92be1e-575x546.jpg',
+        imageAlt: 'asdf;alskdjf',
+      },
+      x: 25,
+      y: 90,
+    },
+  ],
+};
+
+export const mockShopTheLookKo = {
+  title: '어반 엣지: 스트리트 스타일 코디 영감',
+  media: {
+    imageUrl:
+      'https://cdn.sanity.io/images/g8wycn5o/production/92e862943354141d40d82e5403da1b82be96b04a-736x1308.jpg',
+    imageAlt: 'woman standing',
+  },
+  hotspots: [
+    {
+      title:
+        'SOJOS 여성용 편광 선글라스 레트로 사각형 여성 선글라스 트렌디한 좁은 스퀘어 90년대 스타일 SJ2232',
+      price: 800000,
+      discountInPercent: 10,
+      currency: 'krw' as const,
+      colors: ['#8c5841'] as Color[],
+      media: {
+        imageUrl:
+          'https://cdn.sanity.io/images/g8wycn5o/production/eb40826e70070b0e086cb3526ecb025ff8f576af-569x236.jpg',
+        imageAlt: 'asdf;alskdjf',
+      },
+      x: 50,
+      y: 14,
+    },
+    {
+      title: '빈스 카무토 실버톤 트리오 체인 레이어드 목걸이',
+      price: 680000,
+      discountInPercent: 16,
+      currency: 'krw' as const,
+      colors: ['#b79649'] as Color[],
+      media: {
+        imageUrl:
+          'https://cdn.sanity.io/images/g8wycn5o/production/329d98cdcf7f24359f93c09af94a02d4255bf5c2-607x535.jpg',
+        imageAlt: 'asdf;alskdjf',
+      },
+      x: 50,
+      y: 30,
+    },
+    {
+      title:
+        '레드 체크 셔츠 여성용 체크 셔츠 오버사이즈 버튼 다운 긴 소매 캐주얼 튜닉 블라우스',
+      price: 658000,
+      discountInPercent: 36,
+      currency: 'krw' as const,
+      colors: ['#935c58'] as Color[],
+      media: {
+        imageUrl:
+          'https://cdn.sanity.io/images/g8wycn5o/production/723cb1cb7ecee20824659633e278804124c17f95-679x715.jpg',
+        imageAlt: 'asdf;alskdjf',
+      },
+      x: 70,
+      y: 45,
+    },
+    {
+      title:
+        '여성용 캐주얼 와이드 레그 배럴 팬츠 루즈핏 로우라이즈 편안한 슬라우치 바지 큰 패치 포켓 소프트 풀온 하의',
+      price: 550000,
+      discountInPercent: 8,
+      currency: 'usd' as const,
+      colors: ['#b79649'] as Color[],
+      media: {
+        imageUrl:
+          'https://cdn.sanity.io/images/g8wycn5o/production/aa93dfe88c080d69a55114a44e0fadce8d2cd951-367x550.jpg',
+        imageAlt: 'asdf;alskdjf',
+      },
+      x: 50,
+      y: 60,
+    },
+    {
+      title: '나이키 에어 모어 업템포 (빅 키드)',
+      price: 300,
+      discountInPercent: 22,
+      currency: 'usd' as const,
+      colors: ['#fc983b'] as Color[],
+      media: {
+        imageUrl:
+          'https://cdn.sanity.io/images/g8wycn5o/production/754e715e9fab57a07d4c80d803cd2c930b92be1e-575x546.jpg',
+        imageAlt: 'asdf;alskdjf',
+      },
+      x: 25,
+      y: 90,
+    },
+  ],
+};

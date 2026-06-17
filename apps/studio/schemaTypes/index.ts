@@ -19,6 +19,7 @@ import {
   socialLink,
   videoEmbeded,
 } from './sharedTypes'
+import {shopTheLook} from './documents/shopTheLook'
 
 export const schemaTypes = [
   imageWithAlt,
@@ -40,4 +41,5 @@ export const schemaTypes = [
   lookbook,
   siteSetting,
   hero,
+  shopTheLook,
 ]

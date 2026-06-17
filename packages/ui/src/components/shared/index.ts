@@ -6,3 +6,4 @@ export * from './BlogCard';
 export * from './CategoryCard';
 export * from './ColorBlock';
 export * from './ProductCard';
+export * from './ShopTheLook';
