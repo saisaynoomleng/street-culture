@@ -268,3 +268,25 @@ export const mockReviewCard = {
   },
   text: 'Engineered for the heavy impact of street culture. Explore our latest heavyweight graphic tees, destroyed denim, and pro-spec Canadian Maple skate decks. Styled raw on the streets of Seoul and NYC.',
 };
+
+export const mockStoreCard = {
+  name: 'Street Culture Seoul',
+  media: {
+    imageUrl:
+      'https://cdn.sanity.io/images/g8wycn5o/production/e43d1937db51dd8e74df055374ef2e89b7cb6040-1024x1024.png',
+    imageAlt: 'seoul store',
+  },
+  city: 'Seoul',
+  country: 'South Korea',
+};
+
+export const mockStoreCardKo = {
+  name: '하루 커머스 - 서울 언더그라운드 (홍대)',
+  media: {
+    imageUrl:
+      'https://cdn.sanity.io/images/g8wycn5o/production/e43d1937db51dd8e74df055374ef2e89b7cb6040-1024x1024.png',
+    imageAlt: 'seoul store',
+  },
+  city: 'Seoul',
+  country: 'South Korea',
+};

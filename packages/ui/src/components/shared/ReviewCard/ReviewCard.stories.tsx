@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ReviewCard } from './ReviewCard';
 import { mockReviewCard } from '@/lib/mockData';
 import { ReviewCardSkeleton } from './ReviewCardSkeleton';
+import { expect, within } from 'storybook/test';
 
 const meta: Meta<typeof ReviewCard> = {
   title: 'Components/Shared/ReviewCard',
@@ -60,6 +61,22 @@ export const Default: Story = {
       renderImage={(props) => <img src={props.src} alt={props.alt} />}
     />
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const fullName = canvas.getByText(/saya misaki/i);
+    const role = canvas.getByText(/blogger/i);
+    const img = canvas.getByRole('img');
+    const text = canvas.getByText(/engineered for the heavy/i);
+
+    await expect(fullName).toBeInTheDocument();
+    await expect(role).toBeInTheDocument();
+    await expect(text).toBeInTheDocument();
+    await expect(img).toHaveAttribute(
+      'src',
+      expect.stringContaining('i.pinimg.com'),
+    );
+  },
 };
 
 export const Loading = {
