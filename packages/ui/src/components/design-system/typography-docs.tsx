@@ -1,4 +1,4 @@
-import Bounded from '@/components/shared/Bounded/Bounded';
+import { Bounded } from '../shared';
 
 const Headings = [
   {

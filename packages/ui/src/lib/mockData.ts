@@ -290,3 +290,385 @@ export const mockStoreCardKo = {
   city: 'Seoul',
   country: 'South Korea',
 };
+
+export const mockSizeChartHoodieEn = {
+  measurementDesc: [
+    {
+      body: 'From shoulder/neck seam point straight down to bottom edge of hem',
+      label: 'Body Length',
+    },
+    {
+      body: 'Armhole seam at shoulder, along top edge down to bottom of sleeve',
+      label: 'Sleeve Length',
+    },
+    {
+      body: '1 inch under armhole, measure straight across seam to seam',
+      label: 'Chest',
+    },
+    {
+      body: 'Measure along bottom straight across seam to seam',
+      label: 'Bottom Opening',
+    },
+    {
+      body: 'Measure straight across at shoulder point, from armhole to armhole',
+      label: 'Across Shoulder',
+    },
+    {
+      body: 'Measure from shoulder point at neck seam, straight across',
+      label: 'Neck Opening',
+    },
+    {
+      body: '1 Inch under armhole, measure straight across sleeve',
+      label: 'Bicep',
+    },
+  ],
+  media: {
+    imageAlt: 'hoodie size',
+    imageUrl:
+      'https://cdn.sanity.io/images/g8wycn5o/production/cf20039b3725794890de7be3006c305222cd88d5-452x552.png',
+  },
+  name: 'Hoodie',
+  sizes: [
+    {
+      label: 's',
+      measurements: [
+        {
+          label: 'chest',
+          value: '20 5/8',
+        },
+        {
+          label: 'bottom-opening',
+          value: '17',
+        },
+        {
+          label: 'length',
+          value: '27 1/2',
+        },
+        {
+          label: 'sleeve',
+          value: '25 1/4',
+        },
+        {
+          label: 'shoulder',
+          value: '18 1/4',
+        },
+        {
+          label: 'bicep',
+          value: '7 7/8',
+        },
+        {
+          label: 'neck-opening',
+          value: '9 1/4',
+        },
+      ],
+    },
+    {
+      label: 'm',
+      measurements: [
+        {
+          label: 'chest',
+          value: '21 5/8',
+        },
+        {
+          label: 'bottom-opening',
+          value: '18',
+        },
+        {
+          label: 'length',
+          value: '28',
+        },
+        {
+          label: 'sleeve',
+          value: '25 1/4',
+        },
+        {
+          label: 'shoulder',
+          value: '18 3/4',
+        },
+        {
+          label: 'bicep',
+          value: '8 1/4',
+        },
+        {
+          label: 'neck-opening',
+          value: '9 1/2',
+        },
+      ],
+    },
+    {
+      label: 'l',
+      measurements: [
+        {
+          label: 'chest',
+          value: '23 1/8',
+        },
+        {
+          label: 'bottom-opening',
+          value: '19 1/2',
+        },
+        {
+          label: 'length',
+          value: '28 3/4',
+        },
+        {
+          label: 'sleeve',
+          value: '25 3/4',
+        },
+        {
+          label: 'shoulder',
+          value: '19 1/2',
+        },
+        {
+          label: 'bicep',
+          value: '8 3/4',
+        },
+        {
+          label: 'neck-opening',
+          value: '9 3/4',
+        },
+      ],
+    },
+    {
+      label: 'xl',
+      measurements: [
+        {
+          label: 'chest',
+          value: '24 5/8',
+        },
+        {
+          label: 'bottom-opening',
+          value: '21',
+        },
+        {
+          label: 'length',
+          value: '29 1/2',
+        },
+        {
+          label: 'sleeve',
+          value: '26',
+        },
+        {
+          label: 'shoulder',
+          value: '20 1/4',
+        },
+        {
+          label: 'bicep',
+          value: '9 1/4',
+        },
+        {
+          label: 'neck-opening',
+          value: '10',
+        },
+      ],
+    },
+    {
+      label: '2xl',
+      measurements: [
+        {
+          label: 'chest',
+          value: '26 1/8',
+        },
+        {
+          label: 'bottom-opening',
+          value: '22 1/2',
+        },
+        {
+          label: 'length',
+          value: '30',
+        },
+        {
+          label: 'sleeve',
+          value: '26 1/8',
+        },
+        {
+          label: 'shoulder',
+          value: '21',
+        },
+        {
+          label: 'bicep',
+          value: '9 5/8',
+        },
+        {
+          label: 'neck-opening',
+          value: '10',
+        },
+      ],
+    },
+  ],
+};
+
+export const mockSizeChartShirtKo = {
+  measurementDesc: [
+    {
+      body: '등 어깨 끝 평면 측정',
+      label: '어깨',
+    },
+    {
+      body: '겨드랑이에서 평행하게 원의 크기를 재세요',
+      label: '가슴',
+    },
+    {
+      body: '어깨 위에서 셔츠 밑단까지 재어봐',
+      label: '셔츠 길이',
+    },
+    {
+      body: '팔꿈치를 약간 구부린 상태로 하여 넥트 뒷부분에서 손목까지 측정하세요',
+      label: '소매',
+    },
+  ],
+  media: {
+    imageAlt: 'Shirt Size Chart',
+    imageUrl:
+      'https://cdn.sanity.io/images/g8wycn5o/production/3c70acbc5317d280fa3339f53481a8c5f80766e1-331x378.png',
+  },
+  name: 'Shirt',
+  sizes: [
+    {
+      label: 's',
+      measurements: [
+        {
+          label: 'shoulder',
+          value: '43/17',
+        },
+        {
+          label: 'chest',
+          value: '92/36',
+        },
+        {
+          label: 'length',
+          value: '71/28',
+        },
+        {
+          label: 'sleeve',
+          value: '9/22',
+        },
+      ],
+    },
+    {
+      label: 'm',
+      measurements: [
+        {
+          label: 'shoulder',
+          value: '45/18',
+        },
+        {
+          label: 'chest',
+          value: '102/40',
+        },
+        {
+          label: 'length',
+          value: '76/30',
+        },
+        {
+          label: 'sleeve',
+          value: '9/23',
+        },
+      ],
+    },
+    {
+      label: 'l',
+      measurements: [
+        {
+          label: 'shoulder',
+          value: '48/19',
+        },
+        {
+          label: 'chest',
+          value: '112/44',
+        },
+        {
+          label: 'length',
+          value: '76/30',
+        },
+        {
+          label: 'sleeve',
+          value: '9/23',
+        },
+      ],
+    },
+    {
+      label: 'xl',
+      measurements: [
+        {
+          label: 'shoulder',
+          value: '112/48',
+        },
+        {
+          label: 'chest',
+          value: '122/48',
+        },
+        {
+          label: 'length',
+          value: '79/31',
+        },
+        {
+          label: 'sleeve',
+          value: '9/23',
+        },
+      ],
+    },
+    {
+      label: 'xxl',
+      measurements: [
+        {
+          label: 'shoulder',
+          value: '53/21',
+        },
+        {
+          label: 'chest',
+          value: '132/52',
+        },
+        {
+          label: 'length',
+          value: '82/32',
+        },
+        {
+          label: 'sleeve',
+          value: '10/25',
+        },
+      ],
+    },
+    {
+      label: '3xl',
+      measurements: [
+        {
+          label: 'shoulder',
+          value: '56/22',
+        },
+        {
+          label: 'chest',
+          value: '142/56',
+        },
+        {
+          label: 'length',
+          value: '84/33',
+        },
+        {
+          label: 'sleeve',
+          value: '10/25',
+        },
+      ],
+    },
+    {
+      label: '4xl',
+      measurements: [
+        {
+          label: 'shoulder',
+          value: '58/22.8',
+        },
+        {
+          label: 'chest',
+          value: '152/59.8',
+        },
+        {
+          label: 'length',
+          value: '87/34.3',
+        },
+        {
+          label: 'sleeve',
+          value: '10.2/26',
+        },
+      ],
+    },
+  ],
+};

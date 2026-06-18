@@ -12,6 +12,7 @@ import { PiFlagBanner } from 'react-icons/pi';
 import { FaAnglesLeft, FaAnglesRight } from 'react-icons/fa6';
 import { GrWorkshop } from 'react-icons/gr';
 import { IoPinSharp } from 'react-icons/io5';
+import { IoMdResize } from 'react-icons/io';
 import { Bounded } from '../shared';
 
 const IconList = [
@@ -30,6 +31,7 @@ const IconList = [
   <FaAnglesRight />,
   <GrWorkshop />,
   <IoPinSharp />,
+  <IoMdResize />,
 ];
 
 const IconDocs = () => {
