@@ -9,3 +9,4 @@ export * from './SubmitButton';
 export * from './LoadingSpinner';
 export * from './ShopTheLook';
 export * from './ReviewCard';
+export * from './SizeChart';
