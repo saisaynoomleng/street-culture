@@ -12,3 +12,9 @@ export type ImageProps = {
   alt: string;
   className?: string;
 };
+
+export type PrevFormStateProps = {
+  success: boolean;
+  message: string;
+  field?: string;
+};

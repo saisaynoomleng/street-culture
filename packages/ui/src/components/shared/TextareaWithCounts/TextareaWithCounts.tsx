@@ -24,8 +24,9 @@ export const TextareaWithCounts = ({
   return (
     <Bounded
       as="div"
-      className={twMerge(clsx('', className))}
+      className={twMerge(clsx('w-full py-0! my-0!', className))}
       isCentered={false}
+      padding="none"
     >
       <Textarea
         maxLength={maxLength}
@@ -35,6 +36,7 @@ export const TextareaWithCounts = ({
           count === maxLength &&
             'border-brand-error-500 focus-visible:ring-brand-error-300/50',
         )}
+        data-testid="textarea"
       />
 
       <div className="flex justify-end gap-x-4 items-center">
