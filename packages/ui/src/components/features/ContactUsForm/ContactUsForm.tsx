@@ -50,7 +50,6 @@ export const ContactUsForm = ({
           placeholder="johndoe"
           autoComplete="name"
           aria-label="fullname"
-          data-testid="fullname"
         />
         {!state.success && state.field === 'fullname' && (
           <p className="form-error-message">{state.message}</p>
@@ -68,7 +67,6 @@ export const ContactUsForm = ({
           placeholder="johndoe@example.com"
           autoComplete="email"
           aria-label="email"
-          data-testid="email"
         />
         {!state.success && state.field === 'email' && (
           <p className="form-error-message">{state.message}</p>
@@ -79,7 +77,7 @@ export const ContactUsForm = ({
         <label htmlFor="subject" className="form-label">
           Subject
         </label>
-        <Input type="text" name="subject" id="subject" data-testid="subject" />
+        <Input type="text" name="subject" id="subject" aria-label="subject" />
         {!state.success && state.field === 'subject' && (
           <p className="form-error-message">{state.message}</p>
         )}
