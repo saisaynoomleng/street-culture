@@ -54,9 +54,9 @@ export const Default: Story = {};
 export const FilledForm: Story = {
   render: (args) => <ContactUsForm {...args} />,
   play: async ({ canvas, userEvent }) => {
-    const fullName = canvas.getByTestId('fullname');
-    const email = canvas.getByTestId('email');
-    const subject = canvas.getByTestId('subject');
+    const fullName = canvas.getByLabelText('fullname');
+    const email = canvas.getByLabelText('email');
+    const subject = canvas.getByLabelText('subject');
     const message = canvas.getByTestId('textarea');
     const submit = canvas.getByRole('button');
 
