@@ -228,7 +228,7 @@
 }
 
 @utility form-label {
-  @apply block after:absolute after:content-["*"] after:ml-0.5 relative;
+  @apply block after:absolute after:content-["*"] after:ml-0.5 relative after:text-brand-error-600;
 }
 
 @utility divider {
