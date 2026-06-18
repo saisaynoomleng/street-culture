@@ -15,11 +15,13 @@ import {
   imageWithAlt,
   localeString,
   localeText,
+  measurement,
   seo,
   socialLink,
   videoEmbeded,
 } from './sharedTypes'
 import {shopTheLook} from './documents/shopTheLook'
+import {sizeChart} from './documents/sizeChart'
 
 export const schemaTypes = [
   imageWithAlt,
@@ -42,4 +44,6 @@ export const schemaTypes = [
   siteSetting,
   hero,
   shopTheLook,
+  measurement,
+  sizeChart,
 ]

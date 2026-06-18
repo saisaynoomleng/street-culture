@@ -1,4 +1,5 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
+import {IoMdResize} from 'react-icons/io'
 
 export const imageWithAlt = defineType({
   name: 'imageWithAlt',
@@ -87,7 +88,24 @@ export const localeText = defineType({
     defineField({
       name: 'en',
       title: 'English',
-      type: 'blockContent',
+      type: 'text',
+    }),
+    defineField({
+      name: 'ko',
+      title: 'Korean',
+      type: 'text',
+    }),
+  ],
+})
+
+export const localeContent = defineType({
+  name: 'localeContent',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'en',
+      title: 'English',
+      type: 'blockContnet',
     }),
     defineField({
       name: 'ko',
@@ -166,6 +184,57 @@ export const faq = defineType({
     prepare({title}) {
       return {
         title: title || 'FAQ title not provided',
+      }
+    },
+  },
+})
+
+export const measurement = defineType({
+  name: 'measurement',
+  type: 'object',
+  icon: IoMdResize,
+  fields: [
+    defineField({
+      name: 'label',
+      title: 'Measurement Label',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Shoulder', value: 'shoulder'},
+          {title: 'Chest', value: 'chest'},
+          {title: 'Length', value: 'length'},
+          {title: 'Sleeve', value: 'sleeve'},
+          {title: 'Waist', value: 'waist'},
+          {title: 'Hips', value: 'hips'},
+          {title: 'Inseam', value: 'inseam'},
+          {title: 'Rise', value: 'rise'},
+          {title: 'Bottom Opening', value: 'bottom-opening'},
+          {title: 'Neck Opening', value: 'neck-opening'},
+          {title: 'Bicep', value: 'bicep'},
+          {title: 'Deck Width', value: 'deck-width'},
+          {title: 'Deck Length', value: 'deck-ength'},
+          {title: 'Wheel Base', value: 'wheel-base'},
+        ],
+        layout: 'dropdown',
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'value',
+      title: 'Measurement Value',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+  ],
+  preview: {
+    select: {
+      label: 'label',
+      value: 'value',
+    },
+    prepare({label, value}) {
+      return {
+        title: label ? label : '',
+        subtitle: `Value: ${value}`,
       }
     },
   },
