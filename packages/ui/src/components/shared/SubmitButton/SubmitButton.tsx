@@ -9,11 +9,13 @@ import { LoadingSpinner } from '../LoadingSpinner';
 type SubmitButtonProps = {
   className?: string;
   children: ReactNode;
+  disable?: boolean;
 };
 
 export const SubmitButton = ({
   className,
   children,
+  disable = false,
 }: SubmitButtonProps): JSX.Element => {
   const { pending } = useFormStatus();
 
@@ -21,7 +23,7 @@ export const SubmitButton = ({
     <Button
       variant="submit"
       aria-label="submit"
-      disabled={pending}
+      disabled={disable}
       className={twMerge(clsx('group', className))}
       type="submit"
     >

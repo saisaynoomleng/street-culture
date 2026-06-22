@@ -1,40 +1,59 @@
-import { SubmitButton } from '@/components/shared';
-import { Input } from '@/components/ui';
-import { PrevFormStateProps } from '@/lib/types';
-import { initialFormState } from '@/lib/utils';
-import clsx from 'clsx';
-import { useActionState, useEffect } from 'react';
-import { toast } from 'sonner';
+import {
+  ActionResponse,
+  NewsletterSubscriptionFormSchema,
+  NewsletterSubscriptionFormValues,
+} from '@street-culture/utils';
+import { JSX } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { twMerge } from 'tailwind-merge';
+import clsx from 'clsx';
+import { Input } from '@/components/ui';
+import { SubmitButton } from '@/components/shared';
+import { toast } from 'sonner';
 
 type NewsletterSubscriptionFormProps = {
   action: (
-    prevState: PrevFormStateProps,
-    formData: FormData,
-  ) => Promise<PrevFormStateProps>;
+    values: NewsletterSubscriptionFormValues,
+  ) => Promise<ActionResponse<NewsletterSubscriptionFormValues>>;
   className?: string;
 };
 
 export const NewsletterSubscriptionForm = ({
   action,
   className,
-}: NewsletterSubscriptionFormProps) => {
-  const [state, actionFunction] = useActionState(action, initialFormState);
+}: NewsletterSubscriptionFormProps): JSX.Element => {
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm<NewsletterSubscriptionFormValues>({
+    resolver: zodResolver(NewsletterSubscriptionFormSchema),
+  });
 
-  useEffect(() => {
-    if (!state.message) return;
+  const onSubmit: SubmitHandler<NewsletterSubscriptionFormValues> = async (
+    values,
+  ) => {
+    const result = await action(values);
 
-    if (state.success) {
-      toast.success(state.message);
-    } else {
-      toast.error(state.message);
+    if (!result.success && result.field) {
+      setError(result.field as keyof NewsletterSubscriptionFormValues, {
+        message: result.message,
+      });
+
+      toast.error(result.message);
     }
-  }, [state.message, state.success]);
+
+    toast.success(result.message);
+  };
 
   return (
     <form
-      action={actionFunction}
-      className={twMerge(clsx('space-y-2 w-full p-4 md:p-6', className))}
+      className={twMerge(
+        clsx('flex flex-col gap-y-4 md:gap-y-6 p-4 md:p-6', className),
+      )}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <div className="space-y-2">
         <label htmlFor="email" className="form-label">
@@ -42,17 +61,17 @@ export const NewsletterSubscriptionForm = ({
         </label>
         <Input
           type="email"
-          name="email"
+          {...register('email')}
           id="email"
           autoComplete="email"
           aria-label="email"
         />
-        {!state.success && (
-          <p className="form-error-message">{state.message}</p>
+        {errors.email && (
+          <p className="form-error-message">{errors.email.message}</p>
         )}
       </div>
 
-      <SubmitButton>Subscribe</SubmitButton>
+      <SubmitButton className="self-start">Subscribe</SubmitButton>
     </form>
   );
 };

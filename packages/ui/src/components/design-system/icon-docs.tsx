@@ -14,6 +14,7 @@ import { GrWorkshop } from 'react-icons/gr';
 import { IoPinSharp } from 'react-icons/io5';
 import { IoMdResize } from 'react-icons/io';
 import { Bounded } from '../shared';
+import { RiFileUploadFill } from 'react-icons/ri';
 
 const IconList = [
   <GiPencil />,
@@ -32,11 +33,12 @@ const IconList = [
   <GrWorkshop />,
   <IoPinSharp />,
   <IoMdResize />,
+  <RiFileUploadFill />,
 ];
 
 const IconDocs = () => {
   return (
-    <Bounded>
+    <Bounded className="flex flex-col gap-y-4">
       <h1 className="font-semibold text-fs-600">Icons</h1>
       <p>
         The icon pack is based on Material Design Icons, Grommet Icons, Game
