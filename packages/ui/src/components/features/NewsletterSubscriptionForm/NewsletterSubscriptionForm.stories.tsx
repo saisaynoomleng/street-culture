@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { NewsletterSubscriptionForm } from './NewsletterSubscriptionForm';
-import { expect, fn, screen, userEvent, waitFor } from 'storybook/test';
-import { PrevFormStateProps } from '@/lib/types';
+import { expect, fn, waitFor } from 'storybook/test';
+import {
+  ActionResponse,
+  NewsletterSubscriptionFormValues,
+} from '@street-culture/utils';
 
 const mockAction = fn(
-  async (
-    prevState: PrevFormStateProps,
-    formData: FormData,
-  ): Promise<PrevFormStateProps> => {
+  async (): Promise<ActionResponse<NewsletterSubscriptionFormValues>> => {
     return {
       success: true,
-      message: 'Thank you for your Subscription!',
+      message: 'Thank you for your subscription',
     };
   },
 );
@@ -24,7 +24,7 @@ const meta: Meta<typeof NewsletterSubscriptionForm> = {
     docs: {
       description: {
         component:
-          'Newsletter subscription form for user to subscribe with email',
+          'Newsletter Subscription Form for users to subscribe to updates',
       },
     },
   },
@@ -35,7 +35,7 @@ const meta: Meta<typeof NewsletterSubscriptionForm> = {
   argTypes: {
     action: {
       control: false,
-      description: 'Action to be handled by Server Action',
+      description: 'Action to be handle by Next.js Server Action',
     },
 
     className: {
@@ -54,18 +54,15 @@ export const FilledForm: Story = {
   render: (args) => <NewsletterSubscriptionForm {...args} />,
   play: async ({ canvas, userEvent }) => {
     const email = canvas.getByLabelText('email');
-    const button = canvas.getByRole('button');
+    const submit = canvas.getByRole('button');
 
-    await userEvent.type(email, 'johndoe@example.com');
-    await userEvent.click(button);
+    await userEvent.type(email, 'johndoe@mail.com');
+    await userEvent.click(submit);
 
     await waitFor(() => {
-      expect(mockAction).toBeCalled();
-    });
-    await waitFor(() => {
-      expect(
-        screen.getByText('Thank you for your Subscription!'),
-      ).toBeInTheDocument();
+      expect(mockAction).toBeCalledWith({
+        email: 'johndoe@mail.com',
+      });
     });
   },
 };

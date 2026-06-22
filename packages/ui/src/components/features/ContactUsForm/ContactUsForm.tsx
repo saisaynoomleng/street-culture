@@ -1,18 +1,22 @@
-import { SubmitButton } from '@/components/shared';
-import { TextareaWithCounts } from '@/components/shared/TextareaWithCounts';
-import { Input } from '@/components/ui';
-import { PrevFormStateProps } from '@/lib/types';
-import { initialFormState } from '@/lib/utils';
-import clsx from 'clsx';
-import { JSX, useActionState, useEffect } from 'react';
+import { JSX } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import {
+  ActionResponse,
+  ContactUsFormSchema,
+  ContactUsFormValues,
+} from '@street-culture/utils';
 import { toast } from 'sonner';
 import { twMerge } from 'tailwind-merge';
+import clsx from 'clsx';
+import { Input } from '@/components/ui';
+import { TextareaWithCounts } from '@/components/shared/TextareaWithCounts';
+import { SubmitButton } from '@/components/shared';
 
 type ContactUsFormProps = {
   action: (
-    prevState: PrevFormStateProps,
-    formData: FormData,
-  ) => Promise<PrevFormStateProps>;
+    values: ContactUsFormValues,
+  ) => Promise<ActionResponse<ContactUsFormValues>>;
   className?: string;
 };
 
@@ -20,80 +24,101 @@ export const ContactUsForm = ({
   action,
   className,
 }: ContactUsFormProps): JSX.Element => {
-  const [state, actionFunction] = useActionState(action, initialFormState);
+  const {
+    register,
+    setError,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ContactUsFormValues>({
+    resolver: zodResolver(ContactUsFormSchema),
+  });
 
-  useEffect(() => {
-    if (!state.message) return;
+  const onSubmit: SubmitHandler<ContactUsFormValues> = async (values) => {
+    const result = await action(values);
 
-    if (state.success) {
-      toast.success(state.message);
-    } else {
-      toast.error(state.message);
+    if (!result.success) {
+      setError(result.field as keyof ContactUsFormValues, {
+        message: result.message,
+      });
+
+      toast.error(result.message);
     }
-  }, [state.message, state.success]);
+
+    toast.success(result.message);
+  };
 
   return (
     <form
-      action={actionFunction}
       className={twMerge(
         clsx('flex flex-col gap-y-4 md:gap-y-6 p-4 md:p-6', className),
       )}
+      onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="space-y-1">
+      <div className="space-y-2">
         <label htmlFor="fullname" className="form-label">
-          First Name
+          Full Name
         </label>
         <Input
+          {...register('fullName')}
           type="text"
-          name="fullname"
           id="fullname"
-          placeholder="johndoe"
           autoComplete="name"
-          aria-label="fullname"
+          aria-label="full name"
+          placeholder="john doe"
         />
-        {!state.success && state.field === 'fullname' && (
-          <p className="form-error-message">{state.message}</p>
+        {errors.fullName && (
+          <p className="form-error-message">{errors.fullName.message}</p>
         )}
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-2">
         <label htmlFor="email" className="form-label">
           Email
         </label>
         <Input
           type="email"
-          name="email"
+          {...register('email')}
           id="email"
-          placeholder="johndoe@example.com"
           autoComplete="email"
           aria-label="email"
+          placeholder="johndoe@example.com"
         />
-        {!state.success && state.field === 'email' && (
-          <p className="form-error-message">{state.message}</p>
+        {errors.email && (
+          <p className="form-error-message">{errors.email.message}</p>
         )}
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-2">
         <label htmlFor="subject" className="form-label">
           Subject
         </label>
-        <Input type="text" name="subject" id="subject" aria-label="subject" />
-        {!state.success && state.field === 'subject' && (
-          <p className="form-error-message">{state.message}</p>
+        <Input
+          type="text"
+          {...register('subject')}
+          id="subject"
+          aria-label="subject"
+        />
+        {errors.subject && (
+          <p className="form-error-message">{errors.subject.message}</p>
         )}
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-2">
         <label htmlFor="message" className="form-label">
           Message
         </label>
-        <TextareaWithCounts name="message" maxLength={3000} />
-        {!state.success && state.field === 'message' && (
-          <p className="form-error-message">{state.message}</p>
+        <TextareaWithCounts
+          id="message"
+          maxLength={3000}
+          {...register('message')}
+          aria-label="message"
+        />
+        {errors.message && (
+          <p className="form-error-message">{errors.message.message}</p>
         )}
       </div>
 
-      <SubmitButton className="self-start">submit</SubmitButton>
+      <SubmitButton className="self-start">Submit</SubmitButton>
     </form>
   );
 };

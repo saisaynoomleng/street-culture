@@ -215,7 +215,7 @@
   h4,
   h5,
   h6 {
-    @apply leading-none text-balance;
+    @apply leading-none text-balance font-heading;
   }
 
   p {
@@ -232,5 +232,5 @@
 }
 
 @utility divider {
-  @apply my-2 w-full h-px bg-brand-neutral-950;
+  @apply my-2 w-[80%] mx-auto h-px bg-brand-neutral-950/10 dark:bg-brand-neutral-50/10;
 }

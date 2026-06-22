@@ -16,6 +16,17 @@ export const ApplicationsTable = t.pgTable('applications', {
   phone: t.varchar('phone', { length: 255 }).notNull(),
   body: t.text('body').notNull(),
   resumeUrl: t.varchar('resume_url', { length: 255 }).notNull(),
+
+  address1: t.varchar('address_1', { length: 255 }).notNull(),
+  address2: t.varchar('address_2', { length: 255 }),
+  city: t.varchar('city', { length: 255 }).notNull(),
+  state: t.varchar('state', { length: 255 }).notNull(),
+  zip: t.varchar('zip', { length: 255 }).notNull(),
+  country: t.varchar('country', { length: 255 }).notNull(),
+  isAuthorizedToWorkInUS: t
+    .boolean('is_authorized_to_work_in_us')
+    .notNull()
+    .default(false),
   status: applicationStatus('status').notNull().default('new'),
   ...timestamp,
 });
