@@ -61,3 +61,25 @@ export const calculateDiscountPrice = (
 ): number => {
   return price * (1 - discount / 100);
 };
+
+/**
+ * Generate SKU number depending on the brand, created time & Date, and random number
+ * @param brand string
+ * @returns string
+ */
+export const skuGenerator = (brand: string): string => {
+  const prefix = brand.slice(0, 3).padEnd(3, 'X');
+  const random = crypto.randomUUID().slice(0, 6).toUpperCase();
+  const date = new Date().toISOString().slice(0, 10).replaceAll('-', '');
+
+  return `${prefix}-${date}-${random}`;
+};
+
+/**
+ * Replace any dash in the text with white space
+ * @param text string
+ * @returns string
+ */
+export const replaceDashWithSpace = (text: string): string => {
+  return text.trim().replace(/-/g, ' ');
+};
