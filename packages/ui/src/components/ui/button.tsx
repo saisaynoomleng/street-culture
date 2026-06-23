@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'border border-brand-neutral-950 dark:border-brand-neutral-50 font-semibold rounded-none',
+          'border border-brand-neutral-950 dark:border-brand-neutral-50 font-semibold rounded-none hover:-translate-y-1',
         outline:
           'border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50',
         secondary:

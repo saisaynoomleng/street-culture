@@ -25,6 +25,7 @@ export const YouTubeEmbedded = ({
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
         className="pointer-events-none w-full h-[60%] border-0 relative saturate-0"
+        data-testid="iframe"
       />
     </Bounded>
   );

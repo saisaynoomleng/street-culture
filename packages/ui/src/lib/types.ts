@@ -10,3 +10,12 @@ export type ImageProps = {
   alt: string;
   className?: string;
 };
+
+export type CallToAction = {
+  href: string;
+  label: string;
+};
+
+export type CallToActionProps = {
+  className?: string;
+} & CallToAction;
