@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { calculateDiscountPrice, formatCurrency } from '@street-culture/utils';
 import { Bounded } from '../Bounded';
 import { ColorBlock } from '../ColorBlock';
-import { ImageProps, Media } from '@/lib/types';
+import { ImageProps, Media } from '../../../lib/types';
 
 type ProductCardProps = {
   className?: string;

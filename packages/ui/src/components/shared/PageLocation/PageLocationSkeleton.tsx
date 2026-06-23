@@ -1,6 +1,6 @@
-import { Skeleton } from '@/components/ui/skeleton';
 import type { JSX } from 'react';
 import { Bounded } from '../Bounded';
+import { Skeleton } from '../../ui';
 
 export const PageLocationSkeleton = (): JSX.Element => {
   return (

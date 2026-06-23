@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { mockShopTheLookEn, mockShopTheLookKo } from '@/lib/mockData.ts';
+import { mockShopTheLookEn, mockShopTheLookKo } from '../../../lib/mockData.ts';
 import { expect, within } from 'storybook/test';
 import { ShopTheLook } from './ShopTheLook';
 import { ShopTheLookSkeleton } from './ShopTheLookSkeleton';

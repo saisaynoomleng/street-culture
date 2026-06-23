@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { BlogMockDataEn, BlogMockDataKo } from '@/lib/mockData.ts';
 import { expect, within } from 'storybook/test';
 import { BlogCardSkeleton } from './BlogCardSkeleton';
 import { BlogCard } from './BlogCard';
+import { BlogMockDataEn, BlogMockDataKo } from '../../../lib/mockData';
 
 const meta: Meta<typeof BlogCard> = {
   title: 'Components/Shared/BlogCard',

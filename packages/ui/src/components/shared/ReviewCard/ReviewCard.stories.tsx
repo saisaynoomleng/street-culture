@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ReviewCard } from './ReviewCard';
-import { mockReviewCard } from '@/lib/mockData';
+import { mockReviewCard } from '../../../lib/mockData';
 import { ReviewCardSkeleton } from './ReviewCardSkeleton';
 import { expect, within } from 'storybook/test';
 

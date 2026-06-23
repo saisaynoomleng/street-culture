@@ -1,9 +1,11 @@
+'use client';
+
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { Bounded } from '../Bounded';
 import { ProductCard } from '../ProductCard';
-import { Color, Media } from '@/lib/types';
+import { Color, Media } from '../../../lib/types';
 
 type ShopTheLookProps = {
   title: string;

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { StoreCard } from './StoreCard';
 import { StoreCardSkeleton } from './StoreCardSkeleton';
-import { mockStoreCard, mockStoreCardKo } from '@/lib/mockData';
+import { mockStoreCard, mockStoreCardKo } from '../../../lib/mockData';
 import { expect, within } from 'storybook/test';
 
 const meta: Meta<typeof StoreCard> = {

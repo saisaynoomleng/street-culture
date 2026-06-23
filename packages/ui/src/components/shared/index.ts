@@ -11,3 +11,4 @@ export * from './ShopTheLook';
 export * from './ReviewCard';
 export * from './SizeChart';
 export * from './YouTubeEmbedded';
+export * from './LookbookCard';

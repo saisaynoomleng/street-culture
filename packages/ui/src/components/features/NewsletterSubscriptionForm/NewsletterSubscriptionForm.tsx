@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ActionResponse,
   NewsletterSubscriptionFormSchema,
@@ -8,9 +10,9 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
-import { Input } from '@/components/ui';
-import { SubmitButton } from '@/components/shared';
 import { toast } from 'sonner';
+import { SubmitButton } from '../../shared';
+import { Input } from '../../ui';
 
 type NewsletterSubscriptionFormProps = {
   action: (

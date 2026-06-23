@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 import { Bounded } from '../Bounded';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Skeleton } from '../../../components/ui/skeleton';
 
 export const ShopTheLookSkeleton = (): JSX.Element => {
   return (
