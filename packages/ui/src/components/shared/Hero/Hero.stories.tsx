@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { HeroMockDataEn, HeroMockDataKo } from '@/lib/mockData.ts';
 import { within, userEvent, expect } from 'storybook/test';
 import { HeroSkeleton } from './HeroSkeleton';
 import { Hero } from './Hero';
+import { HeroMockDataEn, HeroMockDataKo } from '../../../lib/mockData';
 
 const meta: Meta<typeof Hero> = {
   title: 'Components/Shared/Hero',

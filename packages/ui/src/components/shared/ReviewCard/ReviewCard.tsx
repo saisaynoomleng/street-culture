@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 import { Bounded } from '../Bounded';
-import { ImageProps, Media } from '@/lib/types';
+import { ImageProps, Media } from '../../../lib/types';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';

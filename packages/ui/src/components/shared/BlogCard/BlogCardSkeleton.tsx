@@ -1,6 +1,6 @@
 import { JSX } from 'react';
-import { Skeleton } from '@/components/ui/skeleton';
 import { Bounded } from '../Bounded';
+import { Skeleton } from '../../ui';
 
 export const BlogCardSkeleton = (): JSX.Element => {
   return (

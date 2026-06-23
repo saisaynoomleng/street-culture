@@ -1,10 +1,12 @@
+'use client';
+
 import { Dispatch, JSX, SetStateAction, useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
 import { FaAnglesLeft, FaAnglesRight } from 'react-icons/fa6';
 import { Bounded } from '../Bounded';
-import { Button } from '@/components/ui';
-import { Media } from '@/lib/types';
+import { Media } from '../../../lib/types';
+import { Button } from '../../ui';
 
 type HeroProps = {
   banners: Banner[];

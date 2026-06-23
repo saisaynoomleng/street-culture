@@ -1,3 +1,5 @@
+'use client';
+
 import { JSX } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -9,9 +11,9 @@ import {
 import { toast } from 'sonner';
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
-import { Input } from '@/components/ui';
-import { TextareaWithCounts } from '@/components/shared/TextareaWithCounts';
-import { SubmitButton } from '@/components/shared';
+import { Input } from '../../ui';
+import { TextareaWithCounts } from '../../shared/TextareaWithCounts';
+import { SubmitButton } from '../../shared';
 
 type ContactUsFormProps = {
   action: (

@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { LookbookCard } from './LookbookCard';
-import { mockPhoto } from '@/lib/mockData';
-import { Button } from '@/components/ui';
+
 import { LookbookCardSkeleton } from './LookbookCardSkeleton';
-import { expect, waitFor } from 'storybook/test';
+import { expect } from 'storybook/test';
+import { mockPhoto } from '../../../lib/mockData';
+import { Button } from '../../ui';
 
 const meta: Meta<typeof LookbookCard> = {
   title: 'Components/Shared/LookbookCard',

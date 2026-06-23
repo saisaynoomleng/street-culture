@@ -3,7 +3,7 @@ import {
   CallToAction,
   Media,
   ImageProps,
-} from '@/lib/types';
+} from '../../../lib/types';
 import React, { JSX } from 'react';
 import { Bounded } from '../Bounded';
 import { twMerge } from 'tailwind-merge';

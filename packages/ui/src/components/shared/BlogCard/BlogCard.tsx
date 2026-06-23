@@ -2,8 +2,8 @@ import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
 import { formatDate } from '@street-culture/utils';
 import { ReactNode } from 'react';
-import { ImageProps, Media } from '@/lib/types';
 import { Bounded } from '../Bounded';
+import { ImageProps, Media } from '../../../lib/types';
 
 type BlogCardProps = {
   className?: string;

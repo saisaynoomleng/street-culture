@@ -1,4 +1,4 @@
-import { ImageProps, Media } from '@/lib/types';
+import { ImageProps, Media } from '../../../lib/types';
 import { Bounded } from '../Bounded';
 import type { JSX } from 'react';
 import React from 'react';
@@ -12,7 +12,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
+} from '../../../components/ui/table';
 
 type SizeChartProps = {
   name: string;

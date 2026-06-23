@@ -1,6 +1,6 @@
 import { JSX } from 'react';
 import { Bounded } from '../Bounded';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Skeleton } from '../../../components/ui/skeleton';
 
 export const SizeChartSkeleton = (): JSX.Element => {
   return (

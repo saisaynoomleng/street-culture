@@ -3,3 +3,6 @@ export * from './input';
 export * from './skeleton';
 export * from './table';
 export * from './textarea';
+export * from './checkbox';
+export * from './sonner';
+export * from './table';

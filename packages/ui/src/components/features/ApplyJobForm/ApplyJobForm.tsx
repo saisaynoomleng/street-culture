@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ActionResponse,
   JobApplicationsFormSchema,
@@ -9,11 +11,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
-import { Button, Input } from '@/components/ui';
-import { TextareaWithCounts } from '@/components/shared/TextareaWithCounts';
 import { RiFileUploadFill } from 'react-icons/ri';
-import { Checkbox } from '@/components/ui/checkbox';
-import { SubmitButton } from '@/components/shared';
+import { Button, Checkbox, Input } from '../../ui';
+import { TextareaWithCounts } from '../../shared/TextareaWithCounts';
+import { SubmitButton } from '../../shared/SubmitButton';
 
 type ApplyJobFromProps = {
   action: (

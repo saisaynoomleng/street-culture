@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { SizeChart } from './SizeChart';
-import { mockSizeChartHoodieEn, mockSizeChartShirtKo } from '@/lib/mockData';
+import {
+  mockSizeChartHoodieEn,
+  mockSizeChartShirtKo,
+} from '../../../lib/mockData';
 import { expect, within } from 'storybook/test';
 import { SizeChartSkeleton } from './SizeChartSkeleton';
 
