@@ -5,7 +5,7 @@ import { JSX, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
 import { CiPaperplane } from 'react-icons/ci';
-import { Button } from '../../../components/ui';
+import { Button } from '../../ui';
 import { LoadingSpinner } from '../LoadingSpinner';
 
 type SubmitButtonProps = {

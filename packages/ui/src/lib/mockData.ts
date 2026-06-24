@@ -672,3 +672,137 @@ export const mockSizeChartShirtKo = {
     },
   ],
 };
+
+export const mockFooterEn = {
+  footerDescription:
+    'Street Culture by Haru Commerce is a multi-tenant retail ecosystem fusing underground skate aesthetics with enterprise headless engineering. Part of the Haru modular brand architecture, alongside Haru Properties and Haru Agencies. All rights reserved.',
+  footerColumns: [
+    {
+      title: 'Useful Links',
+      columnLinks: [
+        {
+          label: 'Career',
+          href: '',
+        },
+        {
+          label: 'Authors',
+          href: '',
+        },
+        {
+          label: 'Drop Club Membership',
+          href: '',
+        },
+      ],
+    },
+    {
+      title: 'Main Links',
+      columnLinks: [
+        {
+          label: 'Home',
+          href: '',
+        },
+        {
+          label: 'Lookbooks',
+          href: '',
+        },
+        {
+          label: 'Our Story',
+          href: '',
+        },
+      ],
+    },
+    {
+      title: 'Utility Pages',
+      columnLinks: [
+        {
+          label: 'Privacy Policy',
+          href: '',
+        },
+        {
+          label: 'Shipping Policy',
+          href: '',
+        },
+        {
+          label: 'Accessibility Assessment',
+          href: '',
+        },
+        {
+          label: 'Payment Policy',
+          href: '',
+        },
+      ],
+    },
+  ],
+  media: {
+    imageUrl:
+      'https://cdn.sanity.io/images/g8wycn5o/production/543a074b1e3b8810185fd1602030734c03591050-521x609.png',
+    imageAlt: 'street culuture logo',
+  },
+};
+
+export const mockFooterKo = {
+  footerDescription:
+    'Haru Commerce의 Street Culture는 언더그라운드 스케이트 감성과 엔터프라이즈 헤드리스 엔지니어링을 결합한 멀티테넌트 리테일 생태계입니다. Haru Properties, Haru Agencies와 함께 Haru 모듈형 브랜드 아키텍처의 일환으로 운영됩니다. All rights reserved.',
+  footerColumns: [
+    {
+      title: '주요 링크',
+      columnLinks: [
+        {
+          label: '채용 정보',
+          href: '',
+        },
+        {
+          label: '에디터 소개',
+          href: '',
+        },
+        {
+          label: 'Drop Club 가입',
+          href: '',
+        },
+      ],
+    },
+    {
+      title: '주요 링크',
+      columnLinks: [
+        {
+          label: '홈',
+          href: '',
+        },
+        {
+          label: '룩북',
+          href: '',
+        },
+        {
+          label: '브랜드 스토리',
+          href: '',
+        },
+      ],
+    },
+    {
+      title: '이용 약관 및 정책',
+      columnLinks: [
+        {
+          label: '개인정보처리방침',
+          href: '',
+        },
+        {
+          label: '배송 및 물류 규정',
+          href: '',
+        },
+        {
+          label: ' 디지털 웹 접근성 평가',
+          href: '',
+        },
+        {
+          label: '결제 및 통화 규정',
+          href: '',
+        },
+      ],
+    },
+  ],
+  media: {
+    imageUrl:
+      'https://cdn.sanity.io/images/g8wycn5o/production/543a074b1e3b8810185fd1602030734c03591050-521x609.png',
+    imageAlt: 'street culuture logo',
+  },
+};
