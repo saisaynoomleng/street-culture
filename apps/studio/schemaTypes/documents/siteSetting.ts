@@ -159,6 +159,7 @@ export const siteSetting = defineType({
     defineField({
       name: 'footerColumns',
       title: 'Footer Columns',
+      group: 'footer',
       type: 'array',
       of: [
         defineField({
