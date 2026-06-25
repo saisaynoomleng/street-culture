@@ -33,6 +33,7 @@
     "eslint-config-next": "16.2.9",
     "react-icon": "^1.0.0",
     "sanity": "^6.2.0",
+    "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4",
     "typescript": "^6.0.3",
     "zod": "^4.4.3"
