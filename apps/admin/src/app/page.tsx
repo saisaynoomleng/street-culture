@@ -2,7 +2,7 @@ import { Bounded } from '@street-culture/ui';
 
 export default async function Home() {
   return (
-    <Bounded>
+    <Bounded padding="none" isCentered={false}>
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam dicta
         non fugiat beatae deserunt eius atque fugit dignissimos laudantium

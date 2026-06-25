@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import SanityProvider from '@/components/SanityProvider';
+import { AdminSidebar } from '@/components/Sidebar';
 
 export const metadata: Metadata = {
   title: {
@@ -17,8 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={` h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        <SanityProvider>{children}</SanityProvider>
+      <body className="min-h-full grid grid-cols-[150px_1fr] relative">
+        <SanityProvider>
+          <AdminSidebar />
+          {children}
+        </SanityProvider>
       </body>
     </html>
   );
