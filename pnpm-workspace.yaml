@@ -21,3 +21,10 @@ minimumReleaseAgeExclude:
   - '@sanity/types@6.1.0'
   - '@sanity/util@6.1.0'
   - sanity@6.1.0
+  - '@sanity/diff@6.2.0'
+  - '@sanity/mutator@6.2.0'
+  - '@sanity/schema@6.2.0'
+  - '@sanity/types@6.2.0'
+  - '@sanity/util@6.2.0'
+  - '@sanity/vision@6.2.0'
+  - sanity@6.2.0

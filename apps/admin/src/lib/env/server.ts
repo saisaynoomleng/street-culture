@@ -12,14 +12,13 @@ export const env = createEnv({
       .string()
       .min(1, 'Sanity Token must have at least 1 character')
       .startsWith('sk'),
-    CLERK_SECRET_KEY: z
+    SANITY_ORGANIZATION_ID: z
       .string()
-      .startsWith('sk')
-      .min(1, 'Clerk secret key must have at least 1 character'),
+      .min(1, 'Sanity Organization ID must have at least 1 character'),
   },
   runtimeEnv: {
     SANTIY_READ_TOKEN: process.env.SANTIY_READ_TOKEN,
     SANITY_WRITE_TOKEN: process.env.SANITY_WRITE_TOKEN,
-    CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
+    SANITY_ORGANIZATION_ID: process.env.SANITY_ORGANIZATION_ID,
   },
 });

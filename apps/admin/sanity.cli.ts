@@ -1,4 +1,5 @@
 import { env } from '@/lib/env/client';
+import { env as ServerEnv } from '@/lib/env/server';
 import { defineCliConfig } from 'sanity/cli';
 
 export default defineCliConfig({
@@ -10,5 +11,9 @@ export default defineCliConfig({
     path: './src/**/*.{js,ts,jsx,tsx}',
     schema: './src/sanity/schema.json',
     generates: './src/sanity/types.ts',
+  },
+  app: {
+    organizationId: ServerEnv.SANITY_ORGANIZATION_ID,
+    entry: './src/components/SanityProvider.tsx',
   },
 });

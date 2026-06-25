@@ -1,3 +1,5 @@
+'use client';
+
 import React, { ComponentPropsWithoutRef, JSX, useState } from 'react';
 import { Bounded } from '../Bounded';
 import { Textarea } from '../../../components/ui';

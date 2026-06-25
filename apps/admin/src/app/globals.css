@@ -1,1 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Assistant:wght@200..800&display=swap');
 @import '@street-culture/ui/styles/css';
+@import 'tailwindcss';
+
+@source '../../../../packages/ui/src/**/*.tsx';
