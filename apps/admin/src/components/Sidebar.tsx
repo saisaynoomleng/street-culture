@@ -1,7 +1,7 @@
 'use client';
 
 import { type JSX } from 'react';
-import { Bounded } from '@street-culture/ui';
+import { Bounded, ThemeProviderToggle } from '@street-culture/ui';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
@@ -83,6 +83,8 @@ export const AdminSidebar = ({ className }: AdminSidebarProps): JSX.Element => {
       </div>
 
       <div className="divider" />
+
+      <ThemeProviderToggle />
 
       {SIDE_BAR_NAVS.map((sidebar) => (
         <Link

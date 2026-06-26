@@ -4,3 +4,4 @@ export * from './SubmitButton';
 export * from './TextareaWithCounts';
 export * from './PageSpinner';
 export * from './PageLoading';
+export * from './ThemeProvider';

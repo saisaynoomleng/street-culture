@@ -29,9 +29,6 @@ importers:
       '@hookform/resolvers':
         specifier: ^5.4.0
         version: 5.4.0(react-hook-form@7.80.0(react@19.2.4))
-      '@sanity/sdk-react':
-        specifier: 2.15.0
-        version: 2.15.0(@types/react@19.2.17)(immer@11.1.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(xstate@5.32.2)
       '@street-culture/db':
         specifier: workspace:*
         version: link:../../packages/db
@@ -47,9 +44,6 @@ importers:
       next-sanity:
         specifier: ^13.1.1
         version: 13.1.1(136f568ab601bbeb1c1ccd62c320309c)
-      next-themes:
-        specifier: ^0.4.6
-        version: 0.4.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       react:
         specifier: 19.2.4
         version: 19.2.4
@@ -3877,12 +3871,6 @@ packages:
 
   '@sanity/schema@6.2.0':
     resolution: {integrity: sha512-6o81OxTYuMre8FnImtHUtiE2i57O/S6NNaaF56MWwc2tsIO/6QBMz/2bu52DFrcRfLd6CMGfuapjBavJYfifNw==}
-
-  '@sanity/sdk-react@2.15.0':
-    resolution: {integrity: sha512-17GUGxfEV1wfkjvEkaCBa5v8fKesDRmFm3r6F+KSGicm7kMQ1UzzK3cYxRWVPE6fhkvlb1zJ2smibGMBkpBs0w==}
-    peerDependencies:
-      react: ^18.0.0 || ^19.0.0
-      react-dom: ^18.0.0 || ^19.0.0
 
   '@sanity/sdk@2.15.0':
     resolution: {integrity: sha512-d8+qzZ5SbFY5QDPSkCmVgwtR4ucACriyEDsjhaPv/zV7zUKh364vm+5sPz+lYx8Egbw4Kyqmcp1bV3GN/AxSGg==}
@@ -7798,11 +7786,6 @@ packages:
     peerDependencies:
       react: ^17.0.0 || ^18.0.0 || ^19.0.0 || ^0.0.0-experimental
 
-  react-compiler-runtime@19.1.0-rc.2:
-    resolution: {integrity: sha512-852AwyIsbWJ5o1LkQVAZsVK3iLjMxOfKZuxqeGd/RfD+j1GqHb6j3DSHLtpu4HhFbQHsP2DzxjJyKR6luv4D8w==}
-    peerDependencies:
-      react: ^17.0.0 || ^18.0.0 || ^19.0.0 || ^0.0.0-experimental
-
   react-docgen-typescript@2.4.0:
     resolution: {integrity: sha512-ZtAp5XTO5HRzQctjPU0ybY0RRCQO19X/8fxn3w7y2VVTUbGHDKULPTL4ky3vB05euSgG5NpALhEhDPvQ56wvXg==}
     peerDependencies:
@@ -7827,11 +7810,6 @@ packages:
     engines: {node: '>= 10.13'}
     peerDependencies:
       react: '>= 16.8'
-
-  react-error-boundary@6.1.2:
-    resolution: {integrity: sha512-3DpCr5HVdZ0caUjYE/kIHBEJN0mNP3ZCgf16c48uJ5TbWjorKVp+YG8W3XqlJ7vJAVNw6wNIImyPXmFydwmyng==}
-    peerDependencies:
-      react: ^18.0.0 || ^19.0.0
 
   react-fast-compare@3.2.2:
     resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
@@ -13097,25 +13075,6 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  '@sanity/sdk-react@2.15.0(@types/react@19.2.17)(immer@11.1.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(xstate@5.32.2)':
-    dependencies:
-      '@sanity/client': 7.23.0
-      '@sanity/message-protocol': 0.23.0
-      '@sanity/sdk': 2.15.0(@types/react@19.2.17)(immer@11.1.8)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(xstate@5.32.2)
-      '@sanity/types': 6.2.0(@types/react@19.2.17)
-      groq: 3.88.1-typegen-experimental.0
-      react: 19.2.4
-      react-compiler-runtime: 19.1.0-rc.2(react@19.2.4)
-      react-dom: 19.2.4(react@19.2.4)
-      react-error-boundary: 6.1.2(react@19.2.4)
-      rxjs: 7.8.2
-    transitivePeerDependencies:
-      - '@types/react'
-      - immer
-      - supports-color
-      - use-sync-external-store
-      - xstate
-
   '@sanity/sdk@2.15.0(@types/react@19.2.17)(immer@11.1.8)(react@19.2.4)(use-sync-external-store@1.6.0(react@19.2.4))(xstate@5.32.2)':
     dependencies:
       '@sanity/bifur-client': 1.0.0
@@ -17311,10 +17270,6 @@ snapshots:
     dependencies:
       react: 19.2.4
 
-  react-compiler-runtime@19.1.0-rc.2(react@19.2.4):
-    dependencies:
-      react: 19.2.4
-
   react-docgen-typescript@2.4.0(typescript@6.0.3):
     dependencies:
       typescript: 6.0.3
@@ -17349,10 +17304,6 @@ snapshots:
       attr-accept: 2.2.5
       file-selector: 0.4.0
       prop-types: 15.8.1
-      react: 19.2.4
-
-  react-error-boundary@6.1.2(react@19.2.4):
-    dependencies:
       react: 19.2.4
 
   react-fast-compare@3.2.2: {}
