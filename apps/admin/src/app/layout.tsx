@@ -2,6 +2,11 @@ import type { Metadata } from 'next';
 import './globals.css';
 import SanityProvider from '@/components/SanityProvider';
 import { AdminSidebar } from '@/components/Sidebar';
+import { Geist } from 'next/font/google';
+import { cn } from '@/lib/utils';
+import { Toaster } from '@street-culture/ui';
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: {
@@ -17,8 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={` h-full antialiased`}>
-      <body className="min-h-full grid grid-cols-[150px_1fr] relative">
+    <html
+      lang="en"
+      className={cn('h-full', 'antialiased', 'font-sans', "font-sans", geist.variable)}
+    >
+      <body className="min-h-full grid grid-cols-[200px_1fr] relative">
         <SanityProvider>
           <AdminSidebar />
           {children}

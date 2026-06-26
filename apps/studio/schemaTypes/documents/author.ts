@@ -37,10 +37,9 @@ export const author = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'socialLinks',
-      type: 'array',
-      title: 'Socail Links',
-      of: [{type: 'socialLink'}],
+      name: 'socialLink',
+      type: 'string',
+      title: 'Socail Link',
     }),
   ],
   preview: {

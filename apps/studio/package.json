@@ -10,9 +10,12 @@
     "deploy-graphql": "sanity graphql deploy",
     "dev": "sanity dev",
     "start": "sanity start",
-    "schema:extract:web": "sanity schema extract --path ../web/sanity/schema.json",
-    "schema:extract:admin": "sanity schema extract --path ../admin/sanity/schema.json",
-    "schema:extract": "pnpm schema:extract:web && pnpm schema:extract:admin"
+    "schema:extract:web": "sanity schema extract --path ../web/src/sanity/schema.json",
+    "schema:extract:admin": "sanity schema extract --path ../admin/src/sanity/schema.json",
+    "schema:extract": "pnpm schema:extract:web && pnpm schema:extract:admin",
+    "typegen:admin": "sanity typegen generate",
+    "typegen:web": "sanity typegen generate --config-path ../web/sanity.cli.ts",
+    "typegen": "pnpm typegen:admin && pnpm typegen:web"
   },
   "keywords": [
     "sanity"
