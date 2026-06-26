@@ -22,6 +22,12 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
         submit:
           'border border-brand-neutral-950 dark:border-brand-neutral-50 font-semibold rounded-none transition-all duration-200 ease-in-out',
+        success:
+          'border border-brand-success-500/50 text-brand-neutral-950 font-semibold rounded-none hover:bg-brand-success-500',
+        warning:
+          'border border-yellow-500/50 text-yellow-700 font-semibold rounded-none hover:bg-yellow-500 hover:text-brand-neutral-950',
+        error:
+          'border border-brand-error-500/50 text-brand-error-950 font-semibold rounded-none hover:bg-brand-error-500 hover:text-brand-neutral-950',
       },
       size: {
         default:

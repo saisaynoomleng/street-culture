@@ -15,6 +15,7 @@ import { IoPinSharp } from 'react-icons/io5';
 import { IoMdResize } from 'react-icons/io';
 import { Bounded } from '../shared';
 import { RiFileUploadFill } from 'react-icons/ri';
+import { MdDashboard } from 'react-icons/md';
 
 const IconList = [
   <GiPencil />,
@@ -34,6 +35,7 @@ const IconList = [
   <IoPinSharp />,
   <IoMdResize />,
   <RiFileUploadFill />,
+  <MdDashboard />,
 ];
 
 const IconDocs = () => {

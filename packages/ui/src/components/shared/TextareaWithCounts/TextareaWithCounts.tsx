@@ -34,6 +34,7 @@ export const TextareaWithCounts = ({
       className={twMerge(clsx('w-full py-0! my-0!', className))}
       isCentered={false}
       padding="none"
+      size="full"
     >
       <Textarea
         maxLength={maxLength}

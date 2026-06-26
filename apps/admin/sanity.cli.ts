@@ -16,4 +16,7 @@ export default defineCliConfig({
     organizationId: ServerEnv.SANITY_ORGANIZATION_ID,
     entry: './src/components/SanityProvider.tsx',
   },
+  deployment: {
+    appId: 'cn3jnsny2qrrk5uz74jeegvd',
+  },
 });

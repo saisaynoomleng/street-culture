@@ -83,3 +83,18 @@ export const skuGenerator = (brand: string): string => {
 export const replaceDashWithSpace = (text: string): string => {
   return text.trim().replace(/-/g, ' ');
 };
+
+/**
+ * Create sanity slug with string input
+ * @param name string
+ * @returns string
+ */
+export const sanitySlugifier = (name: string): string => {
+  return name
+    .trim()
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .slice(0, 200);
+};

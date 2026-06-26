@@ -12,3 +12,4 @@ export * from './ShopTheLook';
 export * from './SizeChart';
 export * from './StoreCard';
 export * from './YouTubeEmbedded';
+export * from './AuthorDisplay';
