@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import SanityProvider from '@/components/SanityProvider';
 import { AdminSidebar } from '@/components/Sidebar';
-import { Geist } from 'next/font/google';
-import { cn } from '@/lib/utils';
-
-const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
+import { ThemeProvider, Toaster } from '@street-culture/ui';
+import { twMerge } from 'tailwind-merge';
+import clsx from 'clsx';
 
 export const metadata: Metadata = {
   title: {
@@ -23,19 +21,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(
-        'h-full',
-        'antialiased',
-        'font-sans',
-        'font-sans',
-        geist.variable,
-      )}
+      className={twMerge(clsx('h-full', 'antialiased'))}
+      suppressHydrationWarning
     >
       <body className="min-h-full grid grid-cols-[200px_1fr] relative">
-        <SanityProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <AdminSidebar />
           {children}
-        </SanityProvider>
+          <Toaster richColors position="top-center" />
+        </ThemeProvider>
       </body>
     </html>
   );
