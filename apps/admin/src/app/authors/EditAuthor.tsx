@@ -15,6 +15,7 @@ import {
   DocumentStatus,
   Input,
   SectionTitle,
+  Separator,
   TextareaWithCounts,
 } from '@street-culture/ui';
 import clsx from 'clsx';
@@ -22,6 +23,7 @@ import { type JSX } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { handleSanityImageUpload } from '@/actions/handleSanityImageUpload';
+import { IoMdInformationCircle } from 'react-icons/io';
 
 interface EditAuthorProps {
   documentHandle: DocumentHandle;
@@ -303,6 +305,11 @@ const EditAuthor = ({
             </Button>
           </div>
         </div>
+
+        <p className="self-end text-fs-300 flex items-center gap-x-1">
+          <IoMdInformationCircle className="text-fs-400 " />
+          Documents needed to be in published mode in order to delete
+        </p>
       </form>
     </Bounded>
   );

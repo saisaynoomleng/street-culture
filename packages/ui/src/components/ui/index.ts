@@ -6,3 +6,4 @@ export * from './textarea';
 export * from './checkbox';
 export * from './sonner';
 export * from './table';
+export * from './separator';

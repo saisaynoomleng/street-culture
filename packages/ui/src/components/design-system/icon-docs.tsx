@@ -7,12 +7,12 @@ import {
   MdOutlineStoreMallDirectory,
 } from 'react-icons/md';
 import { SiNike } from 'react-icons/si';
-import { VscMilestone } from 'react-icons/vsc';
+import { VscGraph, VscMilestone } from 'react-icons/vsc';
 import { PiFlagBanner } from 'react-icons/pi';
-import { FaAnglesLeft, FaAnglesRight } from 'react-icons/fa6';
+import { FaAnglesLeft, FaAnglesRight, FaPlus } from 'react-icons/fa6';
 import { GrWorkshop } from 'react-icons/gr';
 import { IoPinSharp } from 'react-icons/io5';
-import { IoMdResize } from 'react-icons/io';
+import { IoMdInformationCircle, IoMdResize } from 'react-icons/io';
 import { Bounded } from '../shared';
 import { RiFileUploadFill } from 'react-icons/ri';
 import { MdDashboard } from 'react-icons/md';
@@ -36,6 +36,9 @@ const IconList = [
   <IoMdResize />,
   <RiFileUploadFill />,
   <MdDashboard />,
+  <FaPlus />,
+  <IoMdInformationCircle />,
+  <VscGraph />,
 ];
 
 const IconDocs = () => {

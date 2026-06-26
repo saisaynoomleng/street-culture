@@ -4,9 +4,8 @@ import SanityProvider from '@/components/SanityProvider';
 import { AdminSidebar } from '@/components/Sidebar';
 import { Geist } from 'next/font/google';
 import { cn } from '@/lib/utils';
-import { Toaster } from '@street-culture/ui';
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: {
@@ -24,7 +23,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn('h-full', 'antialiased', 'font-sans', "font-sans", geist.variable)}
+      className={cn(
+        'h-full',
+        'antialiased',
+        'font-sans',
+        'font-sans',
+        geist.variable,
+      )}
     >
       <body className="min-h-full grid grid-cols-[200px_1fr] relative">
         <SanityProvider>
