@@ -18,12 +18,10 @@ import {
 } from 'react-icons/md';
 import { PiFlagBanner } from 'react-icons/pi';
 import { SiNike } from 'react-icons/si';
-import { VscMilestone } from 'react-icons/vsc';
-import { MdDashboard } from 'react-icons/md';
+import { VscGraph, VscMilestone } from 'react-icons/vsc';
 
 const SIDE_BAR_NAVS = [
-  { name: 'Dashboard', url: '/', component: <MdDashboard /> },
-  { name: 'Site Settings', url: '/site-settings', component: <GiGearHammer /> },
+  { name: 'Dashboard', url: '/', component: <VscGraph /> },
   { name: 'Our Stories', url: '/our-stories', component: <VscMilestone /> },
   {
     name: 'Stores',
@@ -48,6 +46,7 @@ const SIDE_BAR_NAVS = [
     component: <MdCategory />,
   },
   { name: 'Blogs', url: '/blogs', component: <GiNewspaper /> },
+  { name: 'Site Settings', url: '/site-settings', component: <GiGearHammer /> },
 ];
 
 type AdminSidebarProps = {
@@ -90,7 +89,7 @@ export const AdminSidebar = ({ className }: AdminSidebarProps): JSX.Element => {
           href={sidebar.url}
           key={sidebar.url}
           className={clsx(
-            'px-2 py-2 flex gap-x-1 items-center rounded-sm',
+            'px-2 py-2 flex gap-x-5 items-center rounded-sm',
             pathname === sidebar.url
               ? 'bg-brand-primary-100 text-brand-primary-800 font-semibold'
               : 'bg-brand-neutral-50',

@@ -8,16 +8,20 @@ import {
 } from '@sanity/sdk-react';
 import {
   Bounded,
+  Button,
   EditSkeleton,
   ListSkeleton,
   PreviewSkeleton,
   SectionTitle,
+  Separator,
+  toast,
 } from '@street-culture/ui';
 import { Suspense, useState } from 'react';
 import Author from './Author';
 import EditAuthor from './EditAuthor';
 import PreviewAuthor from './PreviewAuthor';
 import CreateAuthor from './CreateAuthor';
+import { FaPlus } from 'react-icons/fa';
 
 const AuthorsDashboard = () => {
   const { data: authors } = useDocuments({
@@ -32,8 +36,8 @@ const AuthorsDashboard = () => {
   useDocumentEvent({
     ...selectedAuthor,
     onEvent: (e: DocumentEvent) => {
-      if (e.type === 'published') {
-        console.log('published');
+      if (e.type === 'published' || e.type == 'deleted') {
+        toast.success('published');
       }
     },
   });
@@ -48,9 +52,19 @@ const AuthorsDashboard = () => {
       <Bounded
         isCentered={false}
         padding="sm"
-        className="space-y-2 shadow-lg h-screen sticky top-10 self-start"
+        className="shadow-lg h-screen sticky top-10 self-start flex flex-col gap-y-2"
       >
         <SectionTitle as="h4" label="Author Lists" size="sm" />
+        <Button
+          variant="success"
+          className="flex items-center self-end"
+          onClick={() => setSelectedAuthor(null)}
+        >
+          <span>Add New Author</span>
+          <span>
+            <FaPlus />
+          </span>
+        </Button>
 
         <div className="flex flex-col gap-y-3 ">
           {authors.map((author) => (

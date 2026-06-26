@@ -26,8 +26,9 @@ export const RenderImage = ({
         src={imgUrl}
         alt={imageAlt}
         fill
-        sizes="(max-width: 300px) 66vw"
+        sizes="(max-width: 760px) 88vw"
         className="object-cover"
+        loading="lazy"
       />
     </div>
   );
