@@ -18,7 +18,7 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts",
     "src",
-    "sanity/sanity.types.ts"
+    "src/sanity/types.ts"
   ],
   "exclude": ["node_modules"]
 }

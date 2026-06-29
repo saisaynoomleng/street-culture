@@ -6,11 +6,11 @@
     "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "sanity:typegen": "sanity schema extract --path=./src/sanity/schema.json && sanity typegen generate"
+    "lint": "eslint"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
+    "@sanity/client": "^7.23.0",
     "@street-culture/db": "workspace:*",
     "@street-culture/ui": "workspace:*",
     "@street-culture/utils": "workspace:*",
