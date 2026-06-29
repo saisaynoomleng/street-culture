@@ -964,3 +964,43 @@ export type AllSanitySchemaTypes =
   | SanityAssetSourceData
   | SanityImageAsset
   | Geopoint;
+
+// Source: ../admin/src/sanity/lib/queries.ts
+// Variable: ALL_AUTHORS
+// Query: *[_type == 'author' && defined(slug.current)]{  name,  "slug": slug.current,  "imageUrl": image.asset->url,  "imageAlt": image.alt }
+export type ALL_AUTHORS_RESULT = Array<{
+  name: string | null;
+  slug: string | null;
+  imageUrl: string | null;
+  imageAlt: string | null;
+}>;
+
+// Source: ../admin/src/sanity/lib/queries.ts
+// Variable: AUTHOR
+// Query: *[_type == 'author' && slug.current == $slug][0]{  name,  "bioEn": body.en,  "bioKo": body.ko,  "imageUrl": image.asset->url,  "imageAlt": image.alt,  socialLink,  "blogs": *[_type == 'blog'            && defined(slug.current)            && references(^._id)]            | order(publishedAt){              name,              "slug": slug.current,              "imageUrl": image.asset->url,              "imageAlt": image.alt,              publishedAt,              "excerptEn": excerpt.en,              "excerptKo": excerpt.ko            } }
+export type AUTHOR_RESULT = {
+  name: string | null;
+  bioEn: string | null;
+  bioKo: string | null;
+  imageUrl: string | null;
+  imageAlt: string | null;
+  socialLink: string | null;
+  blogs: Array<{
+    name: string | null;
+    slug: string | null;
+    imageUrl: string | null;
+    imageAlt: string | null;
+    publishedAt: string | null;
+    excerptEn: string | null;
+    excerptKo: string | null;
+  }>;
+} | null;
+
+// Query TypeMap
+import '@sanity/client';
+declare module '@sanity/client' {
+  interface SanityQueries {
+    '*[_type == \'author\'\n && defined(slug.current)]{\n  name,\n  "slug": slug.current,\n  "imageUrl": image.asset->url,\n  "imageAlt": image.alt\n }': ALL_AUTHORS_RESULT;
+    '*[_type == \'author\'\n && slug.current == $slug][0]{\n  name,\n  "bioEn": body.en,\n  "bioKo": body.ko,\n  "imageUrl": image.asset->url,\n  "imageAlt": image.alt,\n  socialLink,\n  "blogs": *[_type == \'blog\'\n            && defined(slug.current)\n            && references(^._id)]\n            | order(publishedAt){\n              name,\n              "slug": slug.current,\n              "imageUrl": image.asset->url,\n              "imageAlt": image.alt,\n              publishedAt,\n              "excerptEn": excerpt.en,\n              "excerptKo": excerpt.ko\n            }\n }': AUTHOR_RESULT;
+  }
+}
