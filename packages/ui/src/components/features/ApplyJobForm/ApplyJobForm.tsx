@@ -513,7 +513,7 @@ export const ApplyJobForm = ({
 
               <Button
                 type="button"
-                variant="destructive"
+                variant="error"
                 aria-label="remove current employer"
                 onClick={() => remove(index)}
               >

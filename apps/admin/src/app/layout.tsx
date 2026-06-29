@@ -4,6 +4,7 @@ import { AdminSidebar } from '@/components/Sidebar';
 import { ThemeProvider, Toaster } from '@street-culture/ui';
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
+import AdminHeader from '@/components/Header';
 
 export const metadata: Metadata = {
   title: {
@@ -32,7 +33,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AdminSidebar />
-          {children}
+          <div className="flex flex-col gap-y-6">
+            <AdminHeader />
+            {children}
+          </div>
           <Toaster richColors position="top-center" />
         </ThemeProvider>
       </body>
