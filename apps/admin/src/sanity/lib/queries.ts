@@ -5,7 +5,6 @@ import { defineQuery } from 'next-sanity';
  */
 export const ALL_AUTHORS = defineQuery(`*[_type == 'author'
  && defined(slug.current)]{
-  _id,
   name,
   "slug": slug.current,
   "imageUrl": image.asset->url,
@@ -17,7 +16,6 @@ export const ALL_AUTHORS = defineQuery(`*[_type == 'author'
  */
 export const AUTHOR = defineQuery(`*[_type == 'author'
  && slug.current == $slug][0]{
-  _id,
   name,
   "bioEn": body.en,
   "bioKo": body.ko,

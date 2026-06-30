@@ -8,8 +8,8 @@ type AuthorDisplayProps = {
   media: Media;
   name: string;
   bio: string;
-  socialLink: SocialLink;
-  renderAction: (socialLink: SocialLink) => React.ReactNode;
+  socialLink?: SocialLink;
+  renderAction?: (socialLink: SocialLink) => React.ReactNode;
   renderImage: (props: ImageProps) => React.ReactNode;
   className?: string;
 };
@@ -38,7 +38,7 @@ export const AuthorDisplay = ({
       <div className="flex flex-col gap-y-1">
         <p className="font-semibold">{name}</p>
         <p>{bio}</p>
-        {renderAction(socialLink)}
+        {socialLink && renderAction?.(socialLink)}
       </div>
     </Bounded>
   );

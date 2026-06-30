@@ -11,7 +11,7 @@ type AdminAuthorCardProps = {
   renderImage: (props: ImageProps) => React.ReactNode;
   selectedAuthor: string | null;
   setSelectedAuthor: Dispatch<SetStateAction<string | null>>;
-  id: string;
+  slug: string;
 };
 
 export const AdminAuthorCard = ({
@@ -21,11 +21,11 @@ export const AdminAuthorCard = ({
   renderImage,
   selectedAuthor,
   setSelectedAuthor,
-  id,
+  slug,
 }: AdminAuthorCardProps): JSX.Element => {
-  const isSelected = selectedAuthor === id;
+  const isSelected = selectedAuthor === slug;
 
-  const handleSelectAuthor = () => setSelectedAuthor(isSelected ? null : id);
+  const handleSelectAuthor = () => setSelectedAuthor(isSelected ? null : slug);
 
   return (
     <Bounded
