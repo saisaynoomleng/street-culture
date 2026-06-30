@@ -1,4 +1,4 @@
 export * from './EditSkeleton';
-export * from './ListSkeleton';
+export * from './SidebarSkeleton';
 export * from './PreviewSkeleton';
 export * from './AdminDashboardSkeleton';

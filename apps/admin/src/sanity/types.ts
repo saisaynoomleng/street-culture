@@ -391,12 +391,7 @@ export type Faq = {
 export type SocialLink = {
   _type: 'socialLink';
   platform?:
-    | 'facebook'
-    | 'instagram'
-    | 'youtube'
-    | 'linkedin'
-    | 'github'
-    | 'twitterx';
+    'facebook' | 'instagram' | 'youtube' | 'linkedin' | 'github' | 'twitterx';
   url?: string;
 };
 
@@ -965,25 +960,28 @@ export type AllSanitySchemaTypes =
   | SanityImageAsset
   | Geopoint;
 
-// Source: ../admin/src/sanity/lib/queries.ts
+// Source: ../admin/src/features/authors/queries.ts
 // Variable: ALL_AUTHORS
-// Query: *[_type == 'author' && defined(slug.current)]{  name,  "slug": slug.current,  "imageUrl": image.asset->url,  "imageAlt": image.alt }
+// Query: *[_type == 'author' && defined(slug.current)]{  _id,  name,  "slug": slug.current,  "imageUrl": coalesce(image.asset->url),  "imageAlt": coalesce(image.alt) }
 export type ALL_AUTHORS_RESULT = Array<{
+  _id: string;
   name: string | null;
   slug: string | null;
   imageUrl: string | null;
   imageAlt: string | null;
 }>;
 
-// Source: ../admin/src/sanity/lib/queries.ts
+// Source: ../admin/src/features/authors/queries.ts
 // Variable: AUTHOR
-// Query: *[_type == 'author' && slug.current == $slug][0]{  name,  "bioEn": body.en,  "bioKo": body.ko,  "imageUrl": image.asset->url,  "imageAlt": image.alt,  socialLink,  "blogs": *[_type == 'blog'            && defined(slug.current)            && references(^._id)]            | order(publishedAt){              name,              "slug": slug.current,              "imageUrl": image.asset->url,              "imageAlt": image.alt,              publishedAt,              "excerptEn": excerpt.en,              "excerptKo": excerpt.ko            } }
+// Query: *[_type == 'author' && slug.current == $slug][0]{  _id,  name,  "slug": slug.current,  "bioEn": coalesce(body.en, ''),  "bioKo": coalesce(body.ko, ''),  "imageUrl": coalesce(image.asset->url, ''),  "imageAlt": coalesce(image.alt, ''),  socialLink,  "blogs": *[_type == 'blog'            && defined(slug.current)            && references(^._id)]            | order(publishedAt){              name,              "slug": slug.current,              "imageUrl": image.asset->url,              "imageAlt": image.alt,              publishedAt,              "excerptEn": excerpt.en,              "excerptKo": excerpt.ko            } }
 export type AUTHOR_RESULT = {
+  _id: string;
   name: string | null;
-  bioEn: string | null;
-  bioKo: string | null;
-  imageUrl: string | null;
-  imageAlt: string | null;
+  slug: string | null;
+  bioEn: string | '';
+  bioKo: string | '';
+  imageUrl: string | '';
+  imageAlt: string | '';
   socialLink: string | null;
   blogs: Array<{
     name: string | null;
@@ -1000,7 +998,7 @@ export type AUTHOR_RESULT = {
 import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
-    '*[_type == \'author\'\n && defined(slug.current)]{\n  name,\n  "slug": slug.current,\n  "imageUrl": image.asset->url,\n  "imageAlt": image.alt\n }': ALL_AUTHORS_RESULT;
-    '*[_type == \'author\'\n && slug.current == $slug][0]{\n  name,\n  "bioEn": body.en,\n  "bioKo": body.ko,\n  "imageUrl": image.asset->url,\n  "imageAlt": image.alt,\n  socialLink,\n  "blogs": *[_type == \'blog\'\n            && defined(slug.current)\n            && references(^._id)]\n            | order(publishedAt){\n              name,\n              "slug": slug.current,\n              "imageUrl": image.asset->url,\n              "imageAlt": image.alt,\n              publishedAt,\n              "excerptEn": excerpt.en,\n              "excerptKo": excerpt.ko\n            }\n }': AUTHOR_RESULT;
+    '*[_type == \'author\'\n && defined(slug.current)]{\n  _id,\n  name,\n  "slug": slug.current,\n  "imageUrl": coalesce(image.asset->url),\n  "imageAlt": coalesce(image.alt)\n }': ALL_AUTHORS_RESULT;
+    '*[_type == \'author\'\n && slug.current == $slug][0]{\n  _id,\n  name,\n  "slug": slug.current,\n  "bioEn": coalesce(body.en, \'\'),\n  "bioKo": coalesce(body.ko, \'\'),\n  "imageUrl": coalesce(image.asset->url, \'\'),\n  "imageAlt": coalesce(image.alt, \'\'),\n  socialLink,\n  "blogs": *[_type == \'blog\'\n            && defined(slug.current)\n            && references(^._id)]\n            | order(publishedAt){\n              name,\n              "slug": slug.current,\n              "imageUrl": image.asset->url,\n              "imageAlt": image.alt,\n              publishedAt,\n              "excerptEn": excerpt.en,\n              "excerptKo": excerpt.ko\n            }\n }': AUTHOR_RESULT;
   }
 }
