@@ -2,12 +2,16 @@ import { getDynamicFetchOptions, sanityFetch } from '@/sanity/lib/live';
 import { ALL_AUTHORS } from '@/sanity/lib/queries';
 import { ALL_AUTHORS_RESULT } from '@/sanity/types';
 import { LivePerspective } from 'next-sanity/live';
+import { cacheTag } from 'next/cache';
+import { cacheKeys } from './cache';
 
 async function fetchAllAuthors(
   perspective: LivePerspective,
   stega: boolean,
 ): Promise<ALL_AUTHORS_RESULT> {
   'use cache';
+  cacheTag(cacheKeys.authors.all);
+
   const { data } = await sanityFetch({
     query: ALL_AUTHORS,
     perspective,

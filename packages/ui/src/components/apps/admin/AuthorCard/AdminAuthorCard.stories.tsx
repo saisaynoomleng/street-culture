@@ -23,7 +23,7 @@ const meta: Meta<typeof AdminAuthorCard> = {
       imageAlt: 'author',
       imageUrl: mockPhoto,
     },
-    id: '123',
+    slug: '123',
   },
   argTypes: {
     name: {
@@ -66,9 +66,9 @@ const meta: Meta<typeof AdminAuthorCard> = {
         'React state action to select the current author as selected author',
     },
 
-    id: {
+    slug: {
       control: 'text',
-      description: "Current Author's Sanity ID",
+      description: "Current Author's Sanity slug",
     },
   },
 };
@@ -103,7 +103,7 @@ export const Selected: Story = {
         <img src={props.src} alt={props.alt} loading="lazy" />
       )}
       selectedAuthor="123"
-      id="123"
+      slug="123"
     />
   ),
 };

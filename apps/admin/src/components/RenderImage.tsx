@@ -28,7 +28,7 @@ export const RenderImage = ({
         fill
         sizes="(max-width: 760px) 88vw"
         className="object-cover"
-        loading="lazy"
+        loading="eager"
       />
     </div>
   );
