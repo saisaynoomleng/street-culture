@@ -81,3 +81,21 @@ export const JobApplicationsFormSchema = z.object({
 export type JobApplicationsFormValues = z.input<
   typeof JobApplicationsFormSchema
 >;
+
+/**
+ * Validate Author Detail Form Server Action
+ */
+export const EditAuthorFormSchema = z.object({
+  slug: z.string(),
+  _id: z.string(),
+  name: z.string(),
+  bioEn: z.string(),
+  bioKo: z.string(),
+  imageUrl: z.string(),
+  imageAlt: z.string(),
+  socialLink: z.url().nullable(),
+});
+/**
+ * Validate Author Detail Form UX inputs
+ */
+export type EditAuthorFormValues = z.infer<typeof EditAuthorFormSchema>;
