@@ -1,10 +1,20 @@
-import { Bounded, Button, SectionTitle } from '@street-culture/ui';
+import {
+  AdminDashboardSkeleton,
+  Bounded,
+  Button,
+  SectionTitle,
+} from '@street-culture/ui';
 import { JSX } from 'react';
 import AuthorList from './AuthorList';
 import { FaPlusCircle } from 'react-icons/fa';
 import EditAuthor from './EditAuthor';
+import { getAllAuthors } from '@/lib/dal';
 
-const AuthorPage = (): JSX.Element => {
+const AuthorPage = async (): Promise<JSX.Element> => {
+  const authors = await getAllAuthors();
+
+  if (!authors) <AdminDashboardSkeleton />;
+
   return (
     <Bounded isCentered={false} className="space-y-3" size="full">
       <SectionTitle as="h3" size="sm" label="Authors" />
@@ -17,7 +27,8 @@ const AuthorPage = (): JSX.Element => {
               <FaPlusCircle />
             </span>
           </Button>
-          <AuthorList />
+
+          <AuthorList authors={authors} />
         </div>
 
         <div>
