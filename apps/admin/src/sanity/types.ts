@@ -994,11 +994,41 @@ export type AUTHOR_RESULT = {
   }>;
 } | null;
 
+// Source: ../admin/src/features/our-stories/queries.ts
+// Variable: ALL_STORIES_QUERY
+// Query: *[_type == 'ourStory'  && defined(slug.current)]  |order(year){  _id,  name,  "slug": slug.current,  year,  "titleEn": coalesce(title.en, ''),  "titleKo": coalesce(title.ko, ''),  "bodyEn": coalesce(body.en, ''),  "bodyKo": coalesce(body.ko, ''), }
+export type ALL_STORIES_QUERY_RESULT = Array<{
+  _id: string;
+  name: string | null;
+  slug: string | null;
+  year: number | null;
+  titleEn: string | '';
+  titleKo: string | '';
+  bodyEn: string | '';
+  bodyKo: string | '';
+}>;
+
+// Source: ../admin/src/features/our-stories/queries.ts
+// Variable: STORY_QUERY
+// Query: *[_type == 'ourStory'  && slug.current == $slug][0]{  _id,  name,  "slug": slug.current,  year,  "titleEn": coalesce(title.en, ''),  "titleKo": coalesce(title.ko, ''),  "bodyEn": coalesce(body.en, ''),  "bodyKo": coalesce(body.ko, ''), }
+export type STORY_QUERY_RESULT = {
+  _id: string;
+  name: string | null;
+  slug: string | null;
+  year: number | null;
+  titleEn: string | '';
+  titleKo: string | '';
+  bodyEn: string | '';
+  bodyKo: string | '';
+} | null;
+
 // Query TypeMap
 import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
     '*[_type == \'author\'\n && defined(slug.current)]{\n  _id,\n  name,\n  "slug": slug.current,\n  "imageUrl": coalesce(image.asset->url),\n  "imageAlt": coalesce(image.alt)\n }': ALL_AUTHORS_RESULT;
     '*[_type == \'author\'\n && slug.current == $slug][0]{\n  _id,\n  name,\n  "slug": slug.current,\n  "bioEn": coalesce(body.en, \'\'),\n  "bioKo": coalesce(body.ko, \'\'),\n  "imageUrl": coalesce(image.asset->url, \'\'),\n  "imageAlt": coalesce(image.alt, \'\'),\n  socialLink,\n  "blogs": *[_type == \'blog\'\n            && defined(slug.current)\n            && references(^._id)]\n            | order(publishedAt){\n              name,\n              "slug": slug.current,\n              "imageUrl": image.asset->url,\n              "imageAlt": image.alt,\n              publishedAt,\n              "excerptEn": excerpt.en,\n              "excerptKo": excerpt.ko\n            }\n }': AUTHOR_RESULT;
+    '*[_type == \'ourStory\'\n  && defined(slug.current)]\n  |order(year)\n{\n  _id,\n  name,\n  "slug": slug.current,\n  year,\n  "titleEn": coalesce(title.en, \'\'),\n  "titleKo": coalesce(title.ko, \'\'),\n  "bodyEn": coalesce(body.en, \'\'),\n  "bodyKo": coalesce(body.ko, \'\'),\n }': ALL_STORIES_QUERY_RESULT;
+    '*[_type == \'ourStory\'\n  && slug.current == $slug][0]{\n  _id,\n  name,\n  "slug": slug.current,\n  year,\n  "titleEn": coalesce(title.en, \'\'),\n  "titleKo": coalesce(title.ko, \'\'),\n  "bodyEn": coalesce(body.en, \'\'),\n  "bodyKo": coalesce(body.ko, \'\'),\n }': STORY_QUERY_RESULT;
   }
 }
