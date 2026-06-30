@@ -1,8 +1,20 @@
-'use server';
-
-import { sanityFetch } from '@/sanity/lib/live';
+import { getDynamicFetchOptions, sanityFetch } from '@/sanity/lib/live';
 import { ALL_AUTHORS } from '@/sanity/lib/queries';
 import { ALL_AUTHORS_RESULT } from '@/sanity/types';
+import { LivePerspective } from 'next-sanity/live';
+
+async function fetchAllAuthors(
+  perspective: LivePerspective,
+  stega: boolean,
+): Promise<ALL_AUTHORS_RESULT> {
+  'use cache';
+  const { data } = await sanityFetch({
+    query: ALL_AUTHORS,
+    perspective,
+    stega,
+  });
+  return data;
+}
 
 /**
  * Get all authors
@@ -14,9 +26,7 @@ import { ALL_AUTHORS_RESULT } from '@/sanity/types';
 }>;
  */
 export const getAllAuthors = async (): Promise<ALL_AUTHORS_RESULT> => {
-  const { data } = await sanityFetch({
-    query: ALL_AUTHORS,
-  });
-
-  return data;
+  'use server';
+  const { perspective, stega } = await getDynamicFetchOptions();
+  return fetchAllAuthors(perspective, stega);
 };

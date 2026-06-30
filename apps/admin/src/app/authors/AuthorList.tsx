@@ -1,19 +1,24 @@
-import { getAllAuthors } from '@/lib/dal';
+'use client';
 
-import { Bounded, ListSkeleton } from '@street-culture/ui';
+import { RenderImage } from '@/components/RenderImage';
+import { ALL_AUTHORS_RESULT } from '@/sanity/types';
+
+import {
+  AdminAuthorCard,
+  AdminAuthorCardSkeleton,
+  Bounded,
+} from '@street-culture/ui';
 import clsx from 'clsx';
-import { Suspense, type JSX } from 'react';
+import { Suspense, useState, type JSX } from 'react';
 import { twMerge } from 'tailwind-merge';
-import Author from './Author';
 
 type AuthorListProps = {
   className?: string;
+  authors: ALL_AUTHORS_RESULT;
 };
 
-const AuthorList = async ({
-  className,
-}: AuthorListProps): Promise<JSX.Element> => {
-  const authors = await getAllAuthors();
+const AuthorList = ({ authors, className }: AuthorListProps): JSX.Element => {
+  const [selectedAuthor, setSelectedAuthor] = useState<string | null>(null);
 
   return (
     <Bounded
@@ -21,12 +26,25 @@ const AuthorList = async ({
       padding="sm"
       className={twMerge(clsx('border', className))}
     >
-      AuthorList
-      {authors.map((a) => (
-        <Suspense fallback={<ListSkeleton />} key={a.slug}>
-          <Author />
-        </Suspense>
-      ))}
+      <div className="flex flex-col gap-y-3">
+        {authors.map((author) => (
+          <Suspense fallback={<AdminAuthorCardSkeleton />} key={author._id}>
+            <AdminAuthorCard
+              name={author.name || ''}
+              media={{
+                imageAlt: author.imageAlt || '',
+                imageUrl: author.imageUrl || '',
+              }}
+              renderImage={(props) => (
+                <RenderImage imageAlt={props.alt || ''} imageUrl={props.src} />
+              )}
+              selectedAuthor={selectedAuthor}
+              setSelectedAuthor={setSelectedAuthor}
+              id={author._id}
+            />
+          </Suspense>
+        ))}
+      </div>
     </Bounded>
   );
 };
