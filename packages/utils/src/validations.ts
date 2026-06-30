@@ -99,3 +99,21 @@ export const EditAuthorFormSchema = z.object({
  * Validate Author Detail Form UX inputs
  */
 export type EditAuthorFormValues = z.infer<typeof EditAuthorFormSchema>;
+
+/**
+ * Validate Story Schema Form Inputs
+ */
+export const AdminStorySchema = z.object({
+  _id: z.string(),
+  name: z.string(),
+  slug: z.string(),
+  titleEn: z.string(),
+  titleKo: z.string(),
+  bodyEn: z.string(),
+  bodyKo: z.string(),
+  year: z.coerce.number(),
+});
+/**
+ * Valiate Story schema values Form Inputss
+ */
+export type AdminStoryValues = z.input<typeof AdminStorySchema>;
