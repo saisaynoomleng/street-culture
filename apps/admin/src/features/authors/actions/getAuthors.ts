@@ -1,15 +1,18 @@
+'use server';
+
+import { cacheKeys } from '@/lib/cacheKeys';
 import { getDynamicFetchOptions, sanityFetch } from '@/sanity/lib/live';
-import { ALL_AUTHORS } from '@/sanity/lib/queries';
 import { ALL_AUTHORS_RESULT } from '@/sanity/types';
 import { LivePerspective } from 'next-sanity/live';
 import { cacheTag } from 'next/cache';
-import { cacheKeys } from './cache';
+import { ALL_AUTHORS } from '../queries';
 
-async function fetchAllAuthors(
+export const fetchAllAuthors = async (
   perspective: LivePerspective,
   stega: boolean,
-): Promise<ALL_AUTHORS_RESULT> {
+): Promise<ALL_AUTHORS_RESULT> => {
   'use cache';
+
   cacheTag(cacheKeys.authors.all);
 
   const { data } = await sanityFetch({
@@ -17,8 +20,9 @@ async function fetchAllAuthors(
     perspective,
     stega,
   });
+
   return data;
-}
+};
 
 /**
  * Get all authors
@@ -30,7 +34,7 @@ async function fetchAllAuthors(
 }>;
  */
 export const getAllAuthors = async (): Promise<ALL_AUTHORS_RESULT> => {
-  'use server';
-  const { perspective, stega } = await getDynamicFetchOptions();
+  const { stega, perspective } = await getDynamicFetchOptions();
+
   return fetchAllAuthors(perspective, stega);
 };

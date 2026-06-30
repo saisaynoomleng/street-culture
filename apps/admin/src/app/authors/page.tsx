@@ -1,12 +1,13 @@
 import {
   AdminDashboardSkeleton,
   Bounded,
-  ListSkeleton,
-  SectionTitle,
+  SidebarSkeleton,
 } from '@street-culture/ui';
 import { JSX, Suspense } from 'react';
-import AuthorList from './AuthorList';
-import { getAllAuthors } from '@/lib/dal';
+
+import AuthorDashboard from '../../features/authors/components/AuthorDashboard';
+import { getAllAuthors } from '@/features/authors/actions/getAuthors';
+import { AuthorQueryProvider } from '@/features/authors/components/AuthorQueryProvider';
 
 const AuthorPage = async (): Promise<JSX.Element> => {
   const authors = await getAllAuthors();
@@ -14,15 +15,15 @@ const AuthorPage = async (): Promise<JSX.Element> => {
   if (!authors) <AdminDashboardSkeleton />;
 
   return (
-    <Bounded isCentered={false} className="space-y-3" size="full">
-      <SectionTitle as="h3" size="sm" label="Authors" />
-
-      <div className="flex flex-col gap-y-3">
-        <Suspense fallback={<ListSkeleton />}>
-          <AuthorList authors={authors} />
-        </Suspense>
-      </div>
-    </Bounded>
+    <AuthorQueryProvider>
+      <Bounded isCentered={false} className="space-y-3" size="full">
+        <div className="flex flex-col gap-y-3">
+          <Suspense fallback={<SidebarSkeleton />}>
+            <AuthorDashboard />
+          </Suspense>
+        </div>
+      </Bounded>
+    </AuthorQueryProvider>
   );
 };
 

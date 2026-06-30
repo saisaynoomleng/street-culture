@@ -5,10 +5,11 @@ import { defineQuery } from 'next-sanity';
  */
 export const ALL_AUTHORS = defineQuery(`*[_type == 'author'
  && defined(slug.current)]{
+  _id,
   name,
   "slug": slug.current,
-  "imageUrl": image.asset->url,
-  "imageAlt": image.alt
+  "imageUrl": coalesce(image.asset->url),
+  "imageAlt": coalesce(image.alt)
  }`);
 
 /**
@@ -16,11 +17,13 @@ export const ALL_AUTHORS = defineQuery(`*[_type == 'author'
  */
 export const AUTHOR = defineQuery(`*[_type == 'author'
  && slug.current == $slug][0]{
+  _id,
   name,
-  "bioEn": body.en,
-  "bioKo": body.ko,
-  "imageUrl": image.asset->url,
-  "imageAlt": image.alt,
+  "slug": slug.current,
+  "bioEn": coalesce(body.en, ''),
+  "bioKo": coalesce(body.ko, ''),
+  "imageUrl": coalesce(image.asset->url, ''),
+  "imageAlt": coalesce(image.alt, ''),
   socialLink,
   "blogs": *[_type == 'blog'
             && defined(slug.current)
