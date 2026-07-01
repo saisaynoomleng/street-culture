@@ -103,8 +103,7 @@ export type EditAuthorFormValues = z.infer<typeof EditAuthorFormSchema>;
 /**
  * Validate Story Schema Form Inputs
  */
-export const AdminStorySchema = z.object({
-  _id: z.string(),
+export const CreateAdminStorySchema = z.object({
   name: z.string(),
   slug: z.string(),
   titleEn: z.string(),
@@ -116,4 +115,4 @@ export const AdminStorySchema = z.object({
 /**
  * Valiate Story schema values Form Inputss
  */
-export type AdminStoryValues = z.input<typeof AdminStorySchema>;
+export type CreateAdminStoryValues = z.input<typeof CreateAdminStorySchema>;

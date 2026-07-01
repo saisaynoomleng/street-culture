@@ -1,9 +1,7 @@
 'use server';
 
-import { cacheKeys } from '@/lib/cacheKeys';
 import { getDynamicFetchOptions, sanityFetch } from '@/sanity/lib/live';
 import { LivePerspective } from 'next-sanity/live';
-import { cacheTag } from 'next/cache';
 import { ALL_STORIES_QUERY } from '../queries';
 
 const fetchOurStories = async (
@@ -11,8 +9,6 @@ const fetchOurStories = async (
   stega: boolean,
 ) => {
   'use cache';
-
-  cacheTag(cacheKeys.ourStory.all);
 
   const { data } = await sanityFetch({
     query: ALL_STORIES_QUERY,

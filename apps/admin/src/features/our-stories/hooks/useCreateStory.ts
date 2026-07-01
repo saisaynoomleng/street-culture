@@ -13,6 +13,8 @@ export const useCreateStory = () => {
     onSuccess: async () => {
       await queryClient.invalidateQueries({
         queryKey: queryKeys.authors.all,
+        exact: true,
+        type: 'all',
       });
     },
   });

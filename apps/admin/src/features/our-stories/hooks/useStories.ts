@@ -8,5 +8,7 @@ export const useStories = () => {
   return useQuery({
     queryKey: queryKeys.ourStory.all,
     queryFn: () => getAllStories(),
+    staleTime: 1000 * 60 * 5,
+    gcTime: 1000 * 60 * 5,
   });
 };

@@ -111,6 +111,10 @@
   p {
     @apply text-pretty;
   }
+
+  label{
+    @apply block font-semibold;
+  }
 }
 
 @utility form-error-message {
